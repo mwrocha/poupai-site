@@ -1,0 +1,278 @@
+/* =============================================
+   juros-compostos.css
+   Estilos da calculadora de juros compostos
+   ============================================= */
+
+.back-link {
+  display: inline-block;
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: color .2s;
+}
+
+.back-link:hover { color: rgba(255,255,255,0.8); }
+
+/* ===== LAYOUT PRINCIPAL ===== */
+.calc-section {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ===== FORMULÁRIO ===== */
+.calc-form {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 32px;
+  position: sticky;
+  top: 84px;
+}
+
+.form-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.6);
+}
+
+.input-wrap {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color .2s;
+}
+
+.input-wrap:focus-within {
+  border-color: var(--c1);
+}
+
+.input-prefix,
+.input-suffix {
+  padding: 0 12px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.03);
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  border-right: 1px solid var(--border);
+}
+
+.input-suffix {
+  border-right: none;
+  border-left: 1px solid var(--border);
+}
+
+.input-wrap input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  padding: 12px 14px;
+  width: 100%;
+}
+
+.input-wrap input::placeholder { color: rgba(255,255,255,0.2); }
+
+.input-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.flex1 { flex: 1; }
+
+.input-row select {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: rgba(255,255,255,0.7);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  padding: 12px 14px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color .2s;
+  white-space: nowrap;
+}
+
+.input-row select:focus { border-color: var(--c1); }
+
+.btn-calcular {
+  width: 100%;
+  margin-top: 8px;
+  background: linear-gradient(135deg, var(--c1), var(--c2));
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+  box-shadow: 0 0 24px rgba(108,58,255,0.35);
+}
+
+.btn-calcular:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 32px rgba(108,58,255,0.55);
+}
+
+/* ===== RESULTADOS ===== */
+.calc-results {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.result-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.result-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.result-card.highlight {
+  border-color: rgba(108,58,255,0.5);
+  background: rgba(108,58,255,0.1);
+}
+
+.result-label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.result-value {
+  font-family: 'Syne', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.result-card.highlight .result-value { color: var(--c2); }
+
+/* ===== TABELA ===== */
+.table-wrap {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.table-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.table-scroll {
+  overflow-x: auto;
+  max-height: 480px;
+  overflow-y: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: rgba(20, 20, 32, 0.98);
+}
+
+thead th {
+  padding: 14px 20px;
+  text-align: right;
+  font-weight: 500;
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+thead th:first-child { text-align: center; }
+
+tbody tr {
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: background .15s;
+}
+
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: rgba(255,255,255,0.03); }
+
+tbody td {
+  padding: 13px 20px;
+  text-align: right;
+  color: rgba(255,255,255,0.75);
+  white-space: nowrap;
+}
+
+tbody td:first-child {
+  text-align: center;
+  color: rgba(255,255,255,0.35);
+  font-size: 13px;
+}
+
+tbody td.juros-col { color: var(--c2); }
+tbody td.montante-col {
+  font-weight: 500;
+  color: #fff;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 900px) {
+  .calc-section {
+    grid-template-columns: 1fr;
+  }
+
+  .calc-form {
+    position: static;
+  }
+
+  .result-cards {
+    grid-template-columns: 1fr;
+  }
+}

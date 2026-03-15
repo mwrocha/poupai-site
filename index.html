@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poupaí — Dinheiro sob controle</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="navbar" id="navbar">
+  <a href="index.html" class="navbar-logo">Poupaí</a>
+
+  <nav class="navbar-links" id="navbarLinks">
+    <a href="index.html" class="nav-link active">Home</a>
+    <a href="sobre.html" class="nav-link">Sobre</a>
+    <a href="blog.html" class="nav-link">Blog</a>
+    <a href="calculadoras.html" class="nav-link">Calculadoras</a>
+    <a href="#" class="nav-link nav-cta">Baixar App</a>
+  </nav>
+
+  <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</header>
+
+<!-- NAV DOTS -->
+<nav class="nav-dots" id="navDots">
+  <div class="dot active" onclick="goTo(0)"></div>
+  <div class="dot" onclick="goTo(1)"></div>
+  <div class="dot" onclick="goTo(2)"></div>
+  <div class="dot" onclick="goTo(3)"></div>
+  <div class="dot" onclick="goTo(4)"></div>
+</nav>
+
+<!-- ===== SEÇÃO 1 — HERO ===== -->
+<section id="s1">
+  <div class="hero-inner">
+    <div class="badge">Poupaí — Finanças inteligentes</div>
+    <h1 class="hero-title">
+      <span class="grad1">Poupaí.<br>Seu dinheiro,<br>seu controle.</span>
+    </h1>
+    <p class="hero-sub">O Poupaí ajuda você a gerenciar gastos, investir melhor e conquistar seus objetivos financeiros — de um jeito simples e descomplicado.</p>
+    <div class="cta-group">
+      <button class="btn-primary">Começar grátis no Poupaí</button>
+      <button class="btn-ghost">Ver como funciona</button>
+    </div>
+  </div>
+
+  <div class="floating-card">
+    <div class="card-label">Saldo hoje</div>
+    <div class="card-val">R$ 4.820</div>
+    <div class="card-sub">+12.4% este mês</div>
+    <div class="card-mini-bar">
+      <div class="bar-col" style="height:35%"></div>
+      <div class="bar-col" style="height:55%"></div>
+      <div class="bar-col" style="height:45%"></div>
+      <div class="bar-col hi" style="height:80%"></div>
+      <div class="bar-col" style="height:60%"></div>
+      <div class="bar-col hi" style="height:100%"></div>
+    </div>
+  </div>
+
+  <div class="scroll-cue">scroll</div>
+</section>
+
+<!-- ===== SEÇÃO 2 — FEATURES ===== -->
+<section id="s2">
+  <div class="section-inner">
+    <div class="section-tag">Funcionalidades do Poupaí</div>
+    <h2 class="section-title">Tudo que você<br>precisa em um lugar</h2>
+    <div class="features-grid">
+      <div class="feat-card">
+        <div class="feat-icon" style="background: rgba(108,58,255,0.2)">💰</div>
+        <div class="feat-name">Controle de gastos</div>
+        <div class="feat-desc">Categorize automaticamente suas despesas e veja para onde vai cada real.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" style="background: rgba(0,210,200,0.15)">📈</div>
+        <div class="feat-name">Investimentos</div>
+        <div class="feat-desc">Acompanhe sua carteira em tempo real com relatórios simples e claros.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" style="background: rgba(255,94,143,0.15)">🎯</div>
+        <div class="feat-name">Metas financeiras</div>
+        <div class="feat-desc">Defina objetivos e receba sugestões personalizadas para alcançá-los.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" style="background: rgba(255,179,71,0.15)">🔔</div>
+        <div class="feat-name">Alertas inteligentes</div>
+        <div class="feat-desc">Notificações quando seus gastos se aproximam do limite que você definiu.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SEÇÃO 3 — STATS ===== -->
+<section id="s3">
+  <div class="stats-wrap">
+    <div>
+      <div class="section-tag" style="color: var(--c4)">Poupaí em números</div>
+      <div class="big-stat grad2">R$ 2.4B+</div>
+      <p style="color: rgba(255,255,255,0.45); font-size: 16px; margin-top: 8px">gerenciados pelos nossos usuários</p>
+    </div>
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="stat-num grad3">380K</div>
+        <div class="stat-lbl">Usuários ativos</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" style="color: var(--c3)">4.9★</div>
+        <div class="stat-lbl">Avaliação nas lojas</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" style="color: var(--c4)">92%</div>
+        <div class="stat-lbl">Economizam mais</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SEÇÃO 4 — COMO FUNCIONA ===== -->
+<section id="s4">
+  <div class="steps-wrap">
+    <div>
+      <div class="section-tag" style="color: var(--c5)">Como funciona</div>
+      <h2 class="section-title" style="margin-bottom: 28px">Simples<br>assim.</h2>
+      <div class="steps-list">
+        <div class="step-item">
+          <div class="step-num" style="color: var(--c1)">01</div>
+          <div class="step-text">
+            <h3>Crie sua conta</h3>
+            <p>Em menos de 2 minutos, sem burocracia.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num" style="color: var(--c2)">02</div>
+          <div class="step-text">
+            <h3>Conecte seu banco</h3>
+            <p>Sincronização automática com Open Finance.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num" style="color: var(--c3)">03</div>
+          <div class="step-text">
+            <h3>Veja sua vida financeira</h3>
+            <p>Dashboard completo, relatórios e insights em segundos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phone-mock">
+      <div class="phone-notch"></div>
+      <div class="phone-row">
+        <span style="font-size: 12px; color: rgba(255,255,255,0.4)">Poupaí · Saldo total</span>
+        <span style="font-size: 12px; color: var(--c5)">+8.2%</span>
+      </div>
+      <div class="phone-balance grad3">R$ 12.450</div>
+      <div class="phone-chart">
+        <div class="pc" style="height: 40%; background: var(--c1)"></div>
+        <div class="pc" style="height: 60%; background: var(--c1)"></div>
+        <div class="pc" style="height: 50%; background: var(--c1)"></div>
+        <div class="pc" style="height: 75%; background: var(--c2)"></div>
+        <div class="pc" style="height: 55%; background: var(--c1)"></div>
+        <div class="pc" style="height: 90%; background: var(--c2); opacity: 1"></div>
+      </div>
+      <div class="phone-txn">
+        <span>Mercado</span><span class="txn-neg">-R$ 240</span>
+      </div>
+      <div class="phone-txn">
+        <span>Salário</span><span class="txn-pos">+R$ 4.500</span>
+      </div>
+      <div class="phone-txn">
+        <span>Netflix</span><span class="txn-neg">-R$ 39</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SEÇÃO 5 — CTA FINAL ===== -->
+<section id="s5">
+  <div class="cta-final">
+    <div class="section-tag" style="color: var(--c2)">Disponível agora</div>
+    <h2 class="section-title">
+        <span style="background: linear-gradient(135deg, #fff, var(--c1), var(--c3)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+          Comece sua jornada<br>com o Poupaí
+        </span>
+    </h2>
+    <p class="cta-sub">Gratuito para sempre no plano básico. Sem cartão de crédito. Sem pegadinha.</p>
+    <div class="app-stores">
+      <div class="store-btn">
+        <span class="store-icon">🍎</span>
+        <div class="store-text">
+          <span>Baixar na</span>
+          <span>App Store</span>
+        </div>
+      </div>
+      <div class="store-btn">
+        <span class="store-icon">▶</span>
+        <div class="store-text">
+          <span>Disponível no</span>
+          <span>Google Play</span>
+        </div>
+      </div>
+      <button class="btn-primary" style="border-radius: 14px">Acessar o Poupaí</button>
+    </div>
+  </div>
+</section>
+
+<script src="assets/js/script.js"></script>
+
+</body>
+</html>
