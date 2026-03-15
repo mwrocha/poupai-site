@@ -11,128 +11,148 @@
 </head>
 <body class="page">
 
-  <!-- ===== NAVBAR ===== -->
-  <header class="navbar" id="navbar">
-    <a href="index.html" class="navbar-logo">Poupaí</a>
-    <nav class="navbar-links" id="navbarLinks">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="sobre.html" class="nav-link">Sobre</a>
-      <a href="blog.html" class="nav-link">Blog</a>
-      <a href="calculadoras.html" class="nav-link active">Calculadoras</a>
-      <a href="#" class="nav-link nav-cta">Baixar App</a>
-    </nav>
-    <button class="hamburger" id="hamburger" aria-label="Abrir menu">
-      <span></span><span></span><span></span>
-    </button>
-  </header>
+<!-- ===== NAVBAR ===== -->
+<header class="navbar" id="navbar">
+  <a href="index.html" class="navbar-logo">Poupaí</a>
+  <nav class="navbar-links" id="navbarLinks">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="sobre.html" class="nav-link">Sobre</a>
+    <a href="blog.html" class="nav-link">Blog</a>
+    <a href="calculadoras.html" class="nav-link active">Calculadoras</a>
+    <a href="#" class="nav-link nav-cta">Baixar App</a>
+  </nav>
+  <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
 
-  <main class="page-main">
+<main class="page-main">
 
-    <!-- HEADER DA PÁGINA -->
-    <section class="page-section">
-      <a href="calculadoras.html" class="back-link">← Voltar para Calculadoras</a>
-      <div class="page-tag">Calculadora</div>
-      <h1 class="page-title">Juros <span class="grad1">Compostos</span></h1>
-      <p class="page-desc">Simule o crescimento do seu investimento ao longo do tempo considerando capital inicial, aportes mensais e a taxa de juros.</p>
-    </section>
+  <!-- HEADER DA PÁGINA -->
+  <section class="page-section">
+    <a href="calculadoras.html" class="back-link">← Voltar para Calculadoras</a>
+    <div class="page-tag">Calculadora</div>
+    <h1 class="page-title">Juros <span class="grad1">Compostos</span></h1>
+    <p class="page-desc">Simule o crescimento do seu investimento ao longo do tempo considerando capital inicial, aportes mensais e a taxa de juros.</p>
+  </section>
 
-    <!-- CALCULADORA -->
-    <section class="page-section calc-section">
+  <!-- CALCULADORA -->
+  <section class="page-section calc-section">
 
-      <!-- FORMULÁRIO -->
-      <div class="calc-form">
-        <h2 class="form-title">Parâmetros</h2>
+    <!-- FORMULÁRIO -->
+    <div class="calc-form">
+      <h2 class="form-title">Parâmetros</h2>
 
-        <div class="input-group">
-          <label for="capital">Capital inicial (R$)</label>
-          <div class="input-wrap">
-            <span class="input-prefix">R$</span>
-            <input type="number" id="capital" placeholder="1.000,00" min="0" step="100">
-          </div>
+      <div class="input-group">
+        <label for="capital">Capital inicial (R$)</label>
+        <div class="input-wrap">
+          <span class="input-prefix">R$</span>
+          <input type="number" id="capital" placeholder="1.000,00" min="0" step="100">
         </div>
-
-        <div class="input-group">
-          <label for="aporte">Aporte mensal (R$)</label>
-          <div class="input-wrap">
-            <span class="input-prefix">R$</span>
-            <input type="number" id="aporte" placeholder="500,00" min="0" step="100">
-          </div>
-        </div>
-
-        <div class="input-group">
-          <label for="taxa">Taxa de juros</label>
-          <div class="input-row">
-            <div class="input-wrap flex1">
-              <input type="number" id="taxa" placeholder="0,8" min="0" step="0.1">
-              <span class="input-suffix">%</span>
-            </div>
-            <select id="periodoTaxa">
-              <option value="mensal">ao mês</option>
-              <option value="anual">ao ano</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="input-group">
-          <label for="periodo">Período</label>
-          <div class="input-row">
-            <div class="input-wrap flex1">
-              <input type="number" id="periodo" placeholder="24" min="1" step="1">
-            </div>
-            <select id="unidadePeriodo">
-              <option value="meses">meses</option>
-              <option value="anos">anos</option>
-            </select>
-          </div>
-        </div>
-
-        <button class="btn-calcular" onclick="calcular()">Calcular</button>
       </div>
 
-      <!-- RESULTADOS -->
-      <div class="calc-results" id="results" style="display:none">
-
-        <!-- CARDS RESUMO -->
-        <div class="result-cards">
-          <div class="result-card">
-            <span class="result-label">Montante final</span>
-            <span class="result-value" id="resTotal">—</span>
-          </div>
-          <div class="result-card highlight">
-            <span class="result-label">Total em juros</span>
-            <span class="result-value" id="resJuros">—</span>
-          </div>
-          <div class="result-card">
-            <span class="result-label">Total investido</span>
-            <span class="result-value" id="resInvestido">—</span>
-          </div>
+      <div class="input-group">
+        <label for="aporte">Aporte mensal (R$)</label>
+        <div class="input-wrap">
+          <span class="input-prefix">R$</span>
+          <input type="number" id="aporte" placeholder="500,00" min="0" step="100">
         </div>
-
-        <!-- TABELA EVOLUÇÃO -->
-        <div class="table-wrap">
-          <h3 class="table-title">Evolução mês a mês</h3>
-          <div class="table-scroll">
-            <table id="tabelaResultados">
-              <thead>
-                <tr>
-                  <th>Mês</th>
-                  <th>Aporte</th>
-                  <th>Juros do mês</th>
-                  <th>Total investido</th>
-                  <th>Montante</th>
-                </tr>
-              </thead>
-              <tbody id="tabelaBody"></tbody>
-            </table>
-          </div>
-        </div>
-
       </div>
-    </section>
 
-  </main>
+      <div class="input-group">
+        <label for="taxa">Taxa de juros</label>
+        <div class="input-row">
+          <div class="input-wrap flex1">
+            <input type="number" id="taxa" placeholder="0,8" min="0" step="0.1">
+            <span class="input-suffix">%</span>
+          </div>
+          <select id="periodoTaxa">
+            <option value="mensal">ao mês</option>
+            <option value="anual">ao ano</option>
+          </select>
+        </div>
+      </div>
 
-  <script src="assets/js/script.js"></script>
-  <script src="assets/js/calculadoras/juros-compostos.js"></script>
+      <div class="input-group">
+        <label for="periodo">Período</label>
+        <div class="input-row">
+          <div class="input-wrap flex1">
+            <input type="number" id="periodo" placeholder="24" min="1" step="1">
+          </div>
+          <select id="unidadePeriodo">
+            <option value="meses">meses</option>
+            <option value="anos">anos</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="btn-calcular" onclick="calcular()">Calcular</button>
+    </div>
+
+    <!-- RESULTADOS -->
+    <div class="calc-results" id="results" style="display:none">
+
+      <!-- CARDS RESUMO -->
+      <div class="result-cards">
+        <div class="result-card">
+          <span class="result-label">Montante final</span>
+          <span class="result-value" id="resTotal">—</span>
+        </div>
+        <div class="result-card highlight">
+          <span class="result-label">Total em juros</span>
+          <span class="result-value" id="resJuros">—</span>
+        </div>
+        <div class="result-card">
+          <span class="result-label">Total investido</span>
+          <span class="result-value" id="resInvestido">—</span>
+        </div>
+      </div>
+
+      <!-- GRÁFICO -->
+      <div class="chart-wrap">
+        <div class="chart-header">
+          <h3 class="table-title">Evolução do patrimônio</h3>
+          <div class="chart-toggle">
+            <button class="toggle-btn active" id="btnMensal" onclick="alternarGrafico('mensal')">Mensal</button>
+            <button class="toggle-btn" id="btnAnual" onclick="alternarGrafico('anual')">Anual</button>
+          </div>
+        </div>
+        <div class="chart-legend">
+          <span class="legend-item"><span class="legend-dot" style="background:#6C3AFF"></span>Capital inicial</span>
+          <span class="legend-item"><span class="legend-dot" style="background:#00D2C8"></span>Aportes</span>
+          <span class="legend-item"><span class="legend-dot" style="background:#3AFFA3"></span>Juros</span>
+        </div>
+        <div class="chart-container">
+          <canvas id="graficoJuros"></canvas>
+        </div>
+      </div>
+
+      <!-- TABELA EVOLUÇÃO -->
+      <div class="table-wrap">
+        <h3 class="table-title">Evolução mês a mês</h3>
+        <div class="table-scroll">
+          <table id="tabelaResultados">
+            <thead>
+            <tr>
+              <th>Mês</th>
+              <th>Aporte</th>
+              <th>Juros do mês</th>
+              <th>Total investido</th>
+              <th>Montante</th>
+            </tr>
+            </thead>
+            <tbody id="tabelaBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="assets/js/calculadoras/juros-compostos.js"></script>
 </body>
 </html>
