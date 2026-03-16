@@ -2,7 +2,7 @@
 
 :root {
   --c1: #6C3AFF;
-  --c2: #793fcf;
+  --c2: #00D2C8;
   --c3: #FF5E8F;
   --c4: #FFB347;
   --c5: #3AFFA3;
@@ -18,7 +18,7 @@ html {
 }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background: var(--dark);
   color: #fff;
   height: 100%;
@@ -70,7 +70,7 @@ section::after {
 }
 
 .navbar-logo {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 22px;
   font-weight: 800;
   text-decoration: none;
@@ -172,7 +172,7 @@ section {
 }
 
 .hero-title {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: clamp(48px, 8vw, 88px);
   font-weight: 800;
   line-height: 0.95;
@@ -262,7 +262,7 @@ section {
 }
 
 .card-val {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 28px;
   font-weight: 700;
   color: var(--c5);
@@ -315,7 +315,7 @@ section {
 }
 
 .section-title {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: clamp(30px, 5vw, 52px);
   font-weight: 800;
   line-height: 1.1;
@@ -354,7 +354,7 @@ section {
 }
 
 .feat-name {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 17px;
   font-weight: 700;
   margin-bottom: 6px;
@@ -383,7 +383,7 @@ section {
 }
 
 .big-stat {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: clamp(64px, 12vw, 120px);
   font-weight: 800;
   line-height: 1;
@@ -413,7 +413,7 @@ section {
 .stat-item { text-align: center; }
 
 .stat-num {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 40px;
   font-weight: 800;
 }
@@ -462,7 +462,7 @@ section {
 }
 
 .step-num {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 28px;
   font-weight: 800;
   min-width: 40px;
@@ -506,7 +506,7 @@ section {
 }
 
 .phone-balance {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 32px;
   font-weight: 700;
 }

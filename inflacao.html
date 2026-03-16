@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Inflação — Poupaí</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/inflacao.css">
+</head>
+<body class="page">
+
+  <header class="navbar" id="navbar">
+    <a href="index.html" class="navbar-logo">Poupaí</a>
+    <nav class="navbar-links" id="navbarLinks">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="sobre.html" class="nav-link">Sobre</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="calculadoras.html" class="nav-link active">Calculadoras</a>
+      <a href="#" class="nav-link nav-cta">Baixar App</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main class="page-main">
+
+    <section class="page-section">
+      <a href="calculadoras.html" class="back-link">← Voltar para Calculadoras</a>
+      <div class="page-tag">Calculadora</div>
+      <h1 class="page-title">Calculadora de <span class="grad1">Inflação</span></h1>
+      <p class="page-desc">Entenda o impacto da inflação no seu dinheiro, compare índices e descubra se seu salário e investimentos estão realmente crescendo.</p>
+    </section>
+
+    <!-- ABAS DE MODO -->
+    <section class="page-section">
+      <div class="modos-wrap">
+        <button class="modo-btn active" id="modoBtn1" onclick="trocarModo(1)">
+          <span class="modo-icon">📉</span>
+          <span class="modo-label">Poder de compra</span>
+        </button>
+        <button class="modo-btn" id="modoBtn2" onclick="trocarModo(2)">
+          <span class="modo-icon">⏮️</span>
+          <span class="modo-label">Valor no passado</span>
+        </button>
+        <button class="modo-btn" id="modoBtn3" onclick="trocarModo(3)">
+          <span class="modo-icon">⏭️</span>
+          <span class="modo-label">Valor no futuro</span>
+        </button>
+        <button class="modo-btn" id="modoBtn4" onclick="trocarModo(4)">
+          <span class="modo-icon">📊</span>
+          <span class="modo-label">Rendimento real</span>
+        </button>
+        <button class="modo-btn" id="modoBtn5" onclick="trocarModo(5)">
+          <span class="modo-icon">💼</span>
+          <span class="modo-label">Simulador de salário</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- MODO 1: PODER DE COMPRA -->
+    <section class="page-section modo-section" id="modo1">
+      <div class="inf-form">
+        <div class="inf-form-header">
+          <h2 class="form-title">Perda do poder de compra</h2>
+          <p class="form-sub">Veja quanto do valor do seu dinheiro foi corroído pela inflação ao longo do tempo.</p>
+        </div>
+        <div class="inf-form-grid">
+          <div class="input-group">
+            <label>Valor original</label>
+            <div class="input-wrap">
+              <span class="input-prefix">R$</span>
+              <input type="number" id="pc-valor" placeholder="10.000,00" min="0" step="100">
+            </div>
+          </div>
+          <div class="input-group">
+            <label>Período (anos)</label>
+            <div class="input-wrap">
+              <input type="number" id="pc-anos" placeholder="10" min="1" max="50" step="1">
+              <span class="input-suffix">anos</span>
+            </div>
+          </div>
+          <div class="input-group">
+            <label>Inflação anual média</label>
+            <div class="input-wrap">
+              <input type="number" id="pc-inflacao" placeholder="4,5" min="0" step="0.1">
+              <span class="input-suffix">% a.a.</span>
+            </div>
+          </div>
+          <div class="input-group">
+            <label>Índice de referência</label>
+            <select id="pc-indice">
+              <option value="4.62">IPCA (média histórica ~4,62%)</option>
+              <option value="7.2">IGP-M (média histórica ~7,20%)</option>
+              <option value="4.1">INPC (média histórica ~4,10%)</option>
+              <option value="custom">Personalizado</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn-calcular" onclick="calcularPoderCompra()">Calcular</button>
+      </div>
+      <div class="inf-results" id="pc-results" style="display:none">
+        <div class="result-cards">
+          <div class="result-card highlight">
+            <span class="result-label">Valor hoje equivale a</span>
+            <span class="result-value" id="pc-hoje">—</span>
+          </div>
+          <div class="result-card">
+            <span class="result-label">Perda do poder de compra</span>
+            <span class="result-value" id="pc-perda">—</span>
+          </div>
+          <div class="result-card">
+            <span class="result-label">Inflação acumulada</span>
+            <span class="result-value" id="pc-acumulada">—</span>
+          </div>
+        </div>
+        <div class="diagnostico" id="pc-diag"></div>
+        <div class="chart-wrap">
+          <div class="chart-header">
+            <h3 class="table-title">Evolução do poder de compra</h3>
+          </div>
+          <div class="chart-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#6C3AFF"></span>Valor nominal</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#FF5E8F"></span>Poder de compra real</span>
+          </div>
+          <div class="chart-container"><canvas id="graficoPC"></canvas></div>
+        </div>
+        <div class="table-wrap">
+          <h3 class="table-title">Evolução ano a ano</h3>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>Ano</th><th>Inflação do ano</th><th>Inflação acumulada</th><th>Valor equivalente</th><th>Perda acumulada</th></tr></thead>
+              <tbody id="pc-tabela"></tbody>
+            </table>
+          </div>
+        </div>
+        <!-- COMPARATIVO ÍNDICES -->
+        <div class="comparativo-indices">
+          <h3 class="table-title" style="padding:20px 24px 0">Comparativo por índice</h3>
+          <p style="padding:8px 24px 16px;font-size:13px;color:rgba(255,255,255,0.4)">Com o mesmo valor e período, veja o impacto de cada índice.</p>
+          <div class="indices-grid" id="pc-indices"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODO 2: VALOR NO PASSADO -->
+    <section class="page-section modo-section" id="modo2" style="display:none">
+      <div class="inf-form">
+        <div class="inf-form-header">
+          <h2 class="form-title">Quanto vale hoje um valor do passado?</h2>
+          <p class="form-sub">Corrija um valor histórico pela inflação e descubra seu equivalente atual.</p>
+        </div>
+        <div class="inf-form-grid">
+          <div class="input-group">
+            <label>Valor no passado</label>
+            <div class="input-wrap">
+              <span class="input-prefix">R$</span>
+              <input type="number" id="past-valor" placeholder="1.000,00" min="0" step="100">
+            </div>
+          </div>
+          <div class="input-group">
+            <label>Há quantos anos</label>
+            <div class="input-wrap">
+              <input type="number" id="past-anos" placeholder="10" min="1" max="50" step="1">
+              <span class="input-suffix">anos atrás</span>
+            </div>
+          </div>
+          <div class="input-group">
+            <label>Inflação anual média</label>
+            <div class="input-wrap">
+              <input type="number" id="past-inflacao" placeholder="4,5" min="0" step="0.1">
+              <span class="input-suffix">% a.a.</span>
+            </div>
+          </div>
+        </div>
+        <button class="btn-calcular" onclick="calcularPassado()">Calcular</button>
+      </div>
+      <div class="inf-results" id="past-results" style="display:none">
+        <div class="result-cards">
+          <div class="result-card highlight">
+            <span class="result-label">Equivale hoje a</span>
+            <span class="result-value" id="past-hoje">—</span>
+          </div>
+          <div class="result-card">
+            <span class="result-label">Inflação acumulada</span>
+            <span class="result-value" id="past-acum">—</span>
+          </div>
+          <div class="result-card">
+            <span class="result-label">Diferença em R$</span>
+            <span class="result-value" id="past-diff">—</span>
+          </div>
+        </div>
+        <div class="diagnostico" id="past-diag"></div>
+      </div>
+    </section>
+
+    <!-- MODO 3: VALOR NO FUTURO -->
+    <section class="page-section modo-section" id="modo3" style="display:none">
+      <div class="inf-form">
+        <div class="inf-form-header">
+          <h2 class="form-title">Quanto vai valer no futuro?</h2>
+          <p class="form-sub">Veja o quanto você precisará ter amanhã para manter o mesmo poder de compra de hoje.</p>
+        </div>
+        <div class="inf-form-grid">
+          <div class="input-group">
+            <label>Valor atual</label>
+            <div class="input-wrap">
+              <span class="input-prefix">R$</span>
+              <input type="number" id="fut-valor" placeholder="10.000,00" min="0" step="100">
+            </div>
+          </div>
+          <div class="input-group">
+            <label>Daqui a quantos anos</label>
+            <div class="input-wrap">
+              <input type="number" id="fut-anos" placeholder="10" min="1" max="50" step="1">
+              <span class="input-suffix">anos</span>
+            </div>
+          </div>
+          <div class="input-group">
+            <label>Inflação anual estimada</label>
+            <div class="input-wrap">
+              <input type="number" id="fut-inflacao" placeholder="4,5" min="0" step="0.1">
+              <span class="input-suffix">% a.a.</span>
+            </div>
+          </div>
+        </div>
+        <button class="btn-calcular" onclick="calcularFuturo()">Calcular</button>
+      </div>
+      <div class="inf-results" id="fut-results" style="display:none">
+        <div class="result-cards">
+          <div class="result-card highlight">
+            <span class="result-label">Precisará ter</span>
+            <span class="result-value" id="fut-valor-res">—</span>
+          </div>
+          <div class="result-card">
+            <span class="result-label">Inflação acumulada</span>
+            <span class="result-value" id="fut-acum">—</span>
+          </div>
+          <div class="result-card">
+            <span class="result-label">Valor a mais necessário</span>
+            <span class="result-value" id="fut-diff">—</span>
+          </div>
+        </div>
+        <div class="diagnostico" id="fut-diag"></div>
+      </div>
+    </section>
+
+    <!-- MODO 4: RENDIMENTO REAL -->
+    <section class="page-section modo-section" id="modo4" style="display:none">
+      <div class="inf-form">
+        <div class="inf-form-header">
+          <h2 class="form-title">Rendimento real do investimento</h2>
+          <p class="form-sub">Descubra quanto seu investimento rendeu de verdade, descontando a inflação.</p>
+        </div>
+        <div class="inf-form-grid">
+          <div class="input-group">
+            <label>Valor investido</label>
+            <div class="input-wrap">
+              <span class="input-prefix">R$</span>
+              <input type="number" id="rr-valor" placeholder="10.000,00" min="0" step="100">
+            </div>
+          </div>
+          <div class="input-group">
+            <label>Período (anos)</label>
+            <div class="input-wrap">
+              <input type="number" id="rr-anos" placeholder="5" min="1" max="50" step="1">
+              <span class="input-suffix">anos</span>
+            </div>
+          </div>
+          <div class="input-group">
+            <label>Rendimento bruto anual</label>
+            <div class="input-wrap">
+              <input type="number" id="rr-rendimento" placeholder="12" min="0" step="0.1">
+              <span class="input-suffix">% a.a.</span>
+            </div>
+          </div>
+          <div class="input-group">
+            <label>Inflação anual média</label>
+            <div class="input-wrap">
+              <input type="number" id="rr-inflacao" placeholder="4,5" min="0" step="0.1">
+              <span class="input-suffix">% a.a.</span>
+            </div>
+          </div>
+        </div>
+        <button class="btn-calcular" onclick="calcularRendimentoReal()">Calcular</button>
+      </div>
+      <div class="inf-results" id="rr-results" style="display:none">
+        <div class="result-cards">
+          <div class="result-card highlight">
+            <span class="result-label">Rendimento real</span>
+            <span class="result-value" id="rr-real">—</span>
+          </div>
+          <div class="result-card">
+            <span class="result-label">Montante bruto</span>
+            <span class="result-value" id="rr-bruto">—</span>
+          </div>
+          <div class="result-card">
+            <span class="result-label">Montante corrigido</span>
+            <span class="result-value" id="rr-corrigido">—</span>
+          </div>
+          <div class="result-card">
+            <span class="result-label">Ganho real em R$</span>
+            <span class="result-value" id="rr-ganho">—</span>
+          </div>
+        </div>
+        <div class="diagnostico" id="rr-diag"></div>
+        <div class="chart-wrap">
+          <div class="chart-header"><h3 class="table-title">Nominal vs Real</h3></div>
+          <div class="chart-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#6C3AFF"></span>Rendimento nominal</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#3AFFA3"></span>Rendimento real</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#FF5E8F"></span>Inflação acumulada</span>
+          </div>
+          <div class="chart-container"><canvas id="graficoRR"></canvas></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODO 5: SIMULADOR DE SALÁRIO -->
+    <section class="page-section modo-section" id="modo5" style="display:none">
+      <div class="inf-form">
+        <div class="inf-form-header">
+          <h2 class="form-title">Seu salário acompanhou a inflação?</h2>
+          <p class="form-sub">Compare sua evolução salarial com a inflação acumulada no período.</p>
+        </div>
+        <div class="inf-form-grid">
+          <div class="input-group">
+            <label>Salário no início do período</label>
+            <div class="input-wrap">
+              <span class="input-prefix">R$</span>
+              <input type="number" id="sal-antes" placeholder="3.000,00" min="0" step="100">
+            </div>
+          </div>
+          <div class="input-group">
+            <label>Salário atual</label>
+            <div class="input-wrap">
+              <span class="input-prefix">R$</span>
+              <input type="number" id="sal-depois" placeholder="5.000,00" min="0" step="100">
+            </div>
+          </div>
+          <div class="input-group">
+            <label>Período (anos)</label>
+            <div class="input-wrap">
+              <input type="number" id="sal-anos" placeholder="5" min="1" max="50" step="1">
+              <span class="input-suffix">anos</span>
+            </div>
+          </div>
+          <div class="input-group">
+            <label>Inflação anual média no período</label>
+            <div class="input-wrap">
+              <input type="number" id="sal-inflacao" placeholder="4,5" min="0" step="0.1">
+              <span class="input-suffix">% a.a.</span>
+            </div>
+          </div>
+        </div>
+        <button class="btn-calcular" onclick="calcularSalario()">Calcular</button>
+      </div>
+      <div class="inf-results" id="sal-results" style="display:none">
+        <div class="result-cards">
+          <div class="result-card highlight">
+            <span class="result-label">Salário necessário hoje</span>
+            <span class="result-value" id="sal-necessario">—</span>
+          </div>
+          <div class="result-card">
+            <span class="result-label">Seu salário atual</span>
+            <span class="result-value" id="sal-atual">—</span>
+          </div>
+          <div class="result-card">
+            <span class="result-label">Variação do salário</span>
+            <span class="result-value" id="sal-variacao">—</span>
+          </div>
+          <div class="result-card">
+            <span class="result-label">Inflação acumulada</span>
+            <span class="result-value" id="sal-inflacaoAcum">—</span>
+          </div>
+        </div>
+        <div class="diagnostico" id="sal-diag"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/calculadoras/inflacao.js"></script>
+</body>
+</html>

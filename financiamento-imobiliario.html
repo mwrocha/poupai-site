@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financiamento Imobiliário — Poupaí</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/financiamento-imobiliario.css">
+</head>
+<body class="page">
+
+  <header class="navbar" id="navbar">
+    <a href="index.html" class="navbar-logo">Poupaí</a>
+    <nav class="navbar-links" id="navbarLinks">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="sobre.html" class="nav-link">Sobre</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="calculadoras.html" class="nav-link active">Calculadoras</a>
+      <a href="#" class="nav-link nav-cta">Baixar App</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main class="page-main">
+
+    <section class="page-section">
+      <a href="calculadoras.html" class="back-link">← Voltar para Calculadoras</a>
+      <div class="page-tag">Calculadora</div>
+      <h1 class="page-title">Financiamento <span class="grad1">Imobiliário</span></h1>
+      <p class="page-desc">Compare as tabelas SAC e PRICE, veja a evolução das parcelas e descubra quanto você pagará ao longo do financiamento.</p>
+    </section>
+
+    <!-- FORMULÁRIO -->
+    <section class="page-section">
+      <div class="fi-form">
+        <div class="fi-form-grid">
+
+          <div class="input-group">
+            <label for="valorImovel">Valor do imóvel</label>
+            <div class="input-wrap">
+              <span class="input-prefix">R$</span>
+              <input type="number" id="valorImovel" placeholder="400.000,00" min="0" step="1000">
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="entrada">Valor da entrada</label>
+            <div class="input-wrap">
+              <span class="input-prefix">R$</span>
+              <input type="number" id="entrada" placeholder="80.000,00" min="0" step="1000">
+            </div>
+            <span class="input-hint" id="pctEntrada"></span>
+          </div>
+
+          <div class="input-group">
+            <label for="prazoAnos">Prazo do financiamento</label>
+            <div class="input-row">
+              <div class="input-wrap flex1">
+                <input type="number" id="prazoAnos" placeholder="30" min="1" max="35" step="1">
+              </div>
+              <span class="input-unit">anos</span>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="taxaAnual">Taxa de juros anual</label>
+            <div class="input-wrap">
+              <input type="number" id="taxaAnual" placeholder="10,5" min="0" step="0.1">
+              <span class="input-suffix">% a.a.</span>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="correcao">Correção monetária</label>
+            <select id="correcao">
+              <option value="0">Sem correção</option>
+              <option value="0.003">TR (~0,30% a.m.)</option>
+              <option value="0.005">IPCA estimado (~0,50% a.m.)</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="renda">Renda familiar mensal <span class="label-opt">(opcional)</span></label>
+            <div class="input-wrap">
+              <span class="input-prefix">R$</span>
+              <input type="number" id="renda" placeholder="10.000,00" min="0" step="100">
+            </div>
+            <span class="input-hint">Para verificar comprometimento de renda</span>
+          </div>
+
+        </div>
+
+        <div class="fi-form-actions">
+          <button class="btn-calcular" onclick="calcularFinanciamento()">Calcular</button>
+          <button class="btn-limpar" onclick="limpar()">Limpar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTADOS -->
+    <div id="resultados" style="display:none">
+
+      <!-- ALERTA DE RENDA -->
+      <section class="page-section" id="alertaRenda" style="display:none">
+        <div class="alerta" id="alertaRendaMsg"></div>
+      </section>
+
+      <!-- COMPARATIVO SAC vs PRICE -->
+      <section class="page-section">
+        <div class="page-tag">Comparativo</div>
+        <h2 class="section-title" style="margin-bottom:28px">SAC <span style="color:rgba(255,255,255,0.3)">vs</span> PRICE</h2>
+
+        <div class="comparativo-grid">
+
+          <!-- SAC -->
+          <div class="sistema-card" id="cardSAC">
+            <div class="sistema-header sac">
+              <h3>Tabela SAC</h3>
+              <span class="sistema-tag">Parcelas decrescentes</span>
+            </div>
+            <div class="sistema-body">
+              <div class="sistema-row">
+                <span>Primeira parcela</span>
+                <strong id="sac-p1">—</strong>
+              </div>
+              <div class="sistema-row">
+                <span>Última parcela</span>
+                <strong id="sac-pn">—</strong>
+              </div>
+              <div class="sistema-row destaque">
+                <span>Total de juros</span>
+                <strong id="sac-juros">—</strong>
+              </div>
+              <div class="sistema-row destaque">
+                <span>Total pago</span>
+                <strong id="sac-total">—</strong>
+              </div>
+              <div class="sistema-row">
+                <span>Você paga a mais</span>
+                <strong id="sac-mais">—</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- PRICE -->
+          <div class="sistema-card" id="cardPRICE">
+            <div class="sistema-header price">
+              <h3>Tabela PRICE</h3>
+              <span class="sistema-tag">Parcelas fixas</span>
+            </div>
+            <div class="sistema-body">
+              <div class="sistema-row">
+                <span>Parcela fixa</span>
+                <strong id="price-p1">—</strong>
+              </div>
+              <div class="sistema-row">
+                <span>Última parcela</span>
+                <strong id="price-pn">—</strong>
+              </div>
+              <div class="sistema-row destaque">
+                <span>Total de juros</span>
+                <strong id="price-juros">—</strong>
+              </div>
+              <div class="sistema-row destaque">
+                <span>Total pago</span>
+                <strong id="price-total">—</strong>
+              </div>
+              <div class="sistema-row">
+                <span>Você paga a mais</span>
+                <strong id="price-mais">—</strong>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RECOMENDAÇÃO -->
+        <div class="recomendacao" id="recomendacao"></div>
+      </section>
+
+      <!-- GRÁFICO -->
+      <section class="page-section">
+        <div class="chart-wrap">
+          <div class="chart-header">
+            <h3 class="table-title">Evolução das parcelas</h3>
+            <div class="chart-toggle">
+              <button class="toggle-btn active" id="btnSAC"   onclick="alternarGrafico('sac')">SAC</button>
+              <button class="toggle-btn"         id="btnPRICE" onclick="alternarGrafico('price')">PRICE</button>
+              <button class="toggle-btn"         id="btnAMBOS" onclick="alternarGrafico('ambos')">Ambos</button>
+            </div>
+          </div>
+          <div class="chart-legend" id="chartLegend">
+            <span class="legend-item"><span class="legend-dot" style="background:#6C3AFF"></span>Amortização</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#FF5E8F"></span>Juros</span>
+          </div>
+          <div class="chart-container">
+            <canvas id="graficoFinanciamento"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <!-- TABELAS -->
+      <section class="page-section">
+        <div class="tabelas-toggle">
+          <button class="toggle-btn active" id="btnTabelaSAC"   onclick="alternarTabela('sac')">Tabela SAC</button>
+          <button class="toggle-btn"        id="btnTabelaPRICE" onclick="alternarTabela('price')">Tabela PRICE</button>
+        </div>
+
+        <div class="table-wrap" id="tabelaSACWrap">
+          <h3 class="table-title">Amortização SAC — mês a mês</h3>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Mês</th>
+                  <th>Parcela</th>
+                  <th>Amortização</th>
+                  <th>Juros</th>
+                  <th>Correção</th>
+                  <th>Saldo devedor</th>
+                </tr>
+              </thead>
+              <tbody id="tabelaSACBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="table-wrap" id="tabelaPRICEWrap" style="display:none">
+          <h3 class="table-title">Amortização PRICE — mês a mês</h3>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Mês</th>
+                  <th>Parcela</th>
+                  <th>Amortização</th>
+                  <th>Juros</th>
+                  <th>Correção</th>
+                  <th>Saldo devedor</th>
+                </tr>
+              </thead>
+              <tbody id="tabelaPRICEBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/calculadoras/financiamento-imobiliario.js"></script>
+</body>
+</html>

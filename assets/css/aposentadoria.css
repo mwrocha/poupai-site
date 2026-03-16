@@ -1,6 +1,6 @@
 /* =============================================
-   juros-compostos.css
-   Estilos da calculadora de juros compostos
+   aposentadoria.css
+   Estilos da calculadora de aposentadoria
    ============================================= */
 
 .back-link {
@@ -14,26 +14,25 @@
 
 .back-link:hover { color: rgba(255,255,255,0.8); }
 
-/* ===== LAYOUT PRINCIPAL ===== */
-.calc-section {
-  display: grid;
-  grid-template-columns: 340px 1fr;
+/* ===== LAYOUT ===== */
+.apos-section {
+  display: flex;
+  flex-direction: column;
   gap: 40px;
-  align-items: start;
 }
 
 /* ===== FORMULÁRIO ===== */
-.calc-form {
+.apos-form {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 24px;
   padding: 32px;
 }
 
-.form-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
-  font-weight: 700;
+.apos-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 32px;
   margin-bottom: 28px;
 }
 
@@ -41,7 +40,6 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 20px;
 }
 
 .input-group label {
@@ -73,13 +71,11 @@
   align-self: stretch;
   display: flex;
   align-items: center;
-  border-right: 1px solid var(--border);
+  white-space: nowrap;
 }
 
-.input-suffix {
-  border-right: none;
-  border-left: 1px solid var(--border);
-}
+.input-prefix { border-right: 1px solid var(--border); }
+.input-suffix  { border-left:  1px solid var(--border); }
 
 .input-wrap input {
   flex: 1;
@@ -95,39 +91,20 @@
 
 .input-wrap input::placeholder { color: rgba(255,255,255,0.2); }
 
-.input-row {
+/* ===== AÇÕES ===== */
+.apos-form-actions {
   display: flex;
-  gap: 10px;
   align-items: center;
+  gap: 16px;
 }
-
-.flex1 { flex: 1; }
-
-.input-row select {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  color: rgba(255,255,255,0.7);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  padding: 12px 14px;
-  outline: none;
-  cursor: pointer;
-  transition: border-color .2s;
-  white-space: nowrap;
-}
-
-.input-row select:focus { border-color: var(--c1); }
 
 .btn-calcular {
-  width: 100%;
-  margin-top: 8px;
   background: linear-gradient(135deg, var(--c1), var(--c2));
   color: #fff;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   font-size: 15px;
-  padding: 14px;
+  padding: 14px 40px;
   border: none;
   border-radius: 12px;
   cursor: pointer;
@@ -140,8 +117,22 @@
   box-shadow: 0 6px 32px rgba(108,58,255,0.55);
 }
 
+.btn-limpar {
+  background: transparent;
+  color: rgba(255,255,255,0.4);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: color .2s;
+  padding: 14px 8px;
+}
+
+.btn-limpar:hover { color: rgba(255,255,255,0.8); }
+
 /* ===== RESULTADOS ===== */
-.calc-results {
+.apos-results {
   display: flex;
   flex-direction: column;
   gap: 28px;
@@ -149,7 +140,7 @@
 
 .result-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 14px;
 }
 
@@ -173,6 +164,7 @@
   color: rgba(255,255,255,0.45);
   text-transform: uppercase;
   letter-spacing: 0.06em;
+  line-height: 1.4;
 }
 
 .result-value {
@@ -183,6 +175,35 @@
 }
 
 .result-card.highlight .result-value { color: var(--c2); }
+
+/* ===== DIAGNÓSTICO ===== */
+.diagnostico {
+  border-radius: 16px;
+  padding: 20px 24px;
+  font-size: 14px;
+  line-height: 1.6;
+  border: 1px solid;
+}
+
+.diagnostico.positivo {
+  background: rgba(58,255,163,0.08);
+  border-color: rgba(58,255,163,0.25);
+  color: var(--c5);
+}
+
+.diagnostico.atencao {
+  background: rgba(255,179,71,0.08);
+  border-color: rgba(255,179,71,0.25);
+  color: var(--c4);
+}
+
+.diagnostico.negativo {
+  background: rgba(255,94,143,0.08);
+  border-color: rgba(255,94,143,0.25);
+  color: var(--c3);
+}
+
+.diagnostico strong { font-weight: 600; }
 
 /* ===== GRÁFICO ===== */
 .chart-wrap {
@@ -303,7 +324,8 @@ thead th {
   white-space: nowrap;
 }
 
-thead th:first-child { text-align: center; }
+thead th:first-child,
+thead th:nth-child(2) { text-align: center; }
 
 tbody tr {
   border-bottom: 1px solid rgba(255,255,255,0.04);
@@ -320,29 +342,25 @@ tbody td {
   white-space: nowrap;
 }
 
-tbody td:first-child {
+tbody td:first-child,
+tbody td:nth-child(2) {
   text-align: center;
   color: rgba(255,255,255,0.35);
   font-size: 13px;
 }
 
-tbody td.juros-col { color: var(--c2); }
+tbody td.juros-col  { color: var(--c2); }
 tbody td.montante-col {
   font-weight: 500;
   color: #fff;
 }
 
 /* ===== RESPONSIVO ===== */
-@media (max-width: 900px) {
-  .calc-section {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 768px) {
+  .apos-form-grid { grid-template-columns: 1fr; }
+  .result-cards   { grid-template-columns: 1fr 1fr; }
+}
 
-  .calc-form {
-    position: static;
-  }
-
-  .result-cards {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 480px) {
+  .result-cards { grid-template-columns: 1fr; }
 }

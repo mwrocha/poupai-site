@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financiamento Geral — Poupaí</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/financiamento-geral.css">
+</head>
+<body class="page">
+
+  <header class="navbar" id="navbar">
+    <a href="index.html" class="navbar-logo">Poupaí</a>
+    <nav class="navbar-links" id="navbarLinks">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="sobre.html" class="nav-link">Sobre</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="calculadoras.html" class="nav-link active">Calculadoras</a>
+      <a href="#" class="nav-link nav-cta">Baixar App</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main class="page-main">
+
+    <section class="page-section">
+      <a href="calculadoras.html" class="back-link">← Voltar para Calculadoras</a>
+      <div class="page-tag">Calculadora</div>
+      <h1 class="page-title">Financiamento <span class="grad1">Geral</span></h1>
+      <p class="page-desc">Simule o financiamento de carro, moto, equipamento ou qualquer bem. Veja parcelas, juros e o custo real do crédito.</p>
+    </section>
+
+    <!-- FORMULÁRIO -->
+    <section class="page-section">
+      <div class="fg-form">
+
+        <!-- TIPO DO BEM -->
+        <div class="tipo-bem">
+          <button class="tipo-btn active" onclick="selecionarTipo('carro', this)">🚗 Carro</button>
+          <button class="tipo-btn" onclick="selecionarTipo('moto', this)">🏍️ Moto</button>
+          <button class="tipo-btn" onclick="selecionarTipo('maquina', this)">⚙️ Máquina</button>
+          <button class="tipo-btn" onclick="selecionarTipo('outro', this)">📦 Outro</button>
+        </div>
+
+        <div class="fg-form-grid">
+
+          <div class="input-group">
+            <label for="valorBem">Valor do bem</label>
+            <div class="input-wrap">
+              <span class="input-prefix">R$</span>
+              <input type="number" id="valorBem" placeholder="50.000,00" min="0" step="500">
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="entradaGeral">Valor da entrada</label>
+            <div class="input-wrap">
+              <span class="input-prefix">R$</span>
+              <input type="number" id="entradaGeral" placeholder="10.000,00" min="0" step="500">
+            </div>
+            <span class="input-hint" id="pctEntradaGeral"></span>
+          </div>
+
+          <div class="input-group">
+            <label for="prazoMeses">Prazo</label>
+            <div class="input-row">
+              <div class="input-wrap flex1">
+                <input type="number" id="prazoMeses" placeholder="48" min="1" max="120" step="1">
+              </div>
+              <span class="input-unit">meses</span>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="taxaMensalGeral">Taxa de juros mensal</label>
+            <div class="input-wrap">
+              <input type="number" id="taxaMensalGeral" placeholder="1,49" min="0" step="0.01">
+              <span class="input-suffix">% a.m.</span>
+            </div>
+            <span class="input-hint" id="taxaAnualEquiv"></span>
+          </div>
+
+          <div class="input-group">
+            <label for="rendaGeral">Renda mensal <span class="label-opt">(opcional)</span></label>
+            <div class="input-wrap">
+              <span class="input-prefix">R$</span>
+              <input type="number" id="rendaGeral" placeholder="5.000,00" min="0" step="100">
+            </div>
+            <span class="input-hint">Para verificar comprometimento de renda</span>
+          </div>
+
+          <div class="input-group">
+            <label for="seguro">Seguro mensal <span class="label-opt">(opcional)</span></label>
+            <div class="input-wrap">
+              <span class="input-prefix">R$</span>
+              <input type="number" id="seguro" placeholder="0,00" min="0" step="10">
+            </div>
+            <span class="input-hint">Valor embutido na parcela, se houver</span>
+          </div>
+
+        </div>
+
+        <div class="fg-form-actions">
+          <button class="btn-calcular" onclick="calcularFinanciamentoGeral()">Calcular</button>
+          <button class="btn-limpar" onclick="limparGeral()">Limpar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTADOS -->
+    <div id="resultadosGeral" style="display:none">
+
+      <!-- ALERTA RENDA -->
+      <section class="page-section" id="alertaRendaGeral" style="display:none">
+        <div class="alerta" id="alertaRendaGeralMsg"></div>
+      </section>
+
+      <!-- CARDS RESUMO -->
+      <section class="page-section">
+        <div class="result-cards">
+          <div class="result-card highlight">
+            <span class="result-label">Parcela mensal</span>
+            <span class="result-value" id="resParcela">—</span>
+          </div>
+          <div class="result-card">
+            <span class="result-label">Total financiado</span>
+            <span class="result-value" id="resFinanciado">—</span>
+          </div>
+          <div class="result-card">
+            <span class="result-label">Total de juros</span>
+            <span class="result-value" id="resJurosTotal">—</span>
+          </div>
+          <div class="result-card">
+            <span class="result-label">Custo total do bem</span>
+            <span class="result-value" id="resTotalBem">—</span>
+          </div>
+        </div>
+
+        <!-- BARRA VISUAL: valor real vs juros -->
+        <div class="custo-real">
+          <div class="custo-label">
+            <span>Custo real do crédito</span>
+            <span id="custoRealPct" class="custo-pct">—</span>
+          </div>
+          <div class="custo-barra">
+            <div class="custo-segmento seg-bem"   id="segBem"></div>
+            <div class="custo-segmento seg-juros" id="segJuros"></div>
+          </div>
+          <div class="custo-legenda">
+            <span><span class="dot-bem"></span>Valor do bem</span>
+            <span><span class="dot-juros"></span>Juros pagos</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SIMULADOR DE ENTRADA -->
+      <section class="page-section">
+        <div class="page-tag" style="color:var(--c4)">Simulação</div>
+        <h2 class="sim-title">E se eu der uma entrada diferente?</h2>
+        <p class="sim-sub">Veja como a parcela e o custo total mudam conforme você aumenta a entrada.</p>
+        <div class="table-wrap">
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Entrada</th>
+                  <th>% do valor</th>
+                  <th>Financiado</th>
+                  <th>Parcela</th>
+                  <th>Total de juros</th>
+                  <th>Custo total</th>
+                </tr>
+              </thead>
+              <tbody id="tabelaEntradas"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- GRÁFICO -->
+      <section class="page-section">
+        <div class="chart-wrap">
+          <div class="chart-header">
+            <h3 class="table-title">Evolução das parcelas</h3>
+            <div class="chart-toggle">
+              <button class="toggle-btn active" id="btnEmpilhado" onclick="alternarGraficoGeral('empilhado')">Amortização + Juros</button>
+              <button class="toggle-btn"        id="btnSaldo"     onclick="alternarGraficoGeral('saldo')">Saldo devedor</button>
+            </div>
+          </div>
+          <div class="chart-legend" id="chartLegendGeral">
+            <span class="legend-item"><span class="legend-dot" style="background:#00D2C8"></span>Amortização</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#FF5E8F"></span>Juros</span>
+          </div>
+          <div class="chart-container">
+            <canvas id="graficoGeral"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <!-- TABELA MÊS A MÊS -->
+      <section class="page-section">
+        <div class="table-wrap">
+          <h3 class="table-title">Evolução mês a mês</h3>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Mês</th>
+                  <th>Parcela</th>
+                  <th>Amortização</th>
+                  <th>Juros</th>
+                  <th>Seguro</th>
+                  <th>Saldo devedor</th>
+                </tr>
+              </thead>
+              <tbody id="tabelaGeralBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/calculadoras/financiamento-geral.js"></script>
+</body>
+</html>
