@@ -114,7 +114,7 @@
   --grad-logo:    linear-gradient(135deg, #6C3AFF, #9B6DFF);
   --grad-hero:    linear-gradient(135deg, #1A1035 0%, #6C3AFF 60%, #9B6DFF 100%);
   --grad-btn:     linear-gradient(135deg, #6C3AFF, #9B6DFF);
-  --grad-cta:     linear-gradient(135deg, #1A1035, #6C3AFF, #793fcf);
+  --grad-cta:     linear-gradient(135deg, #1A1035 0%, #6C3AFF 60%, #9B6DFF 100%);
   --grad-stats1:  linear-gradient(135deg, var(--c4), var(--c3));
   --grad-stats2:  linear-gradient(135deg, var(--c2), var(--c5));
 
@@ -165,12 +165,17 @@ body {
   border-bottom-color: var(--navbar-border) !important;
 }
 
+/* Navbar logo */
 .navbar-logo {
-  background: var(--grad-logo) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
+  background: none !important;
+  -webkit-text-fill-color: unset !important;
 }
+
+[data-theme="dark"] .logo-path { fill: #3cdbd3; }
+
+
+
+[data-theme="light"] .logo-path { fill: #513174; }
 
 .nav-link {
   color: var(--navbar-link) !important;

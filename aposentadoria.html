@@ -13,185 +13,199 @@
 </head>
 <body class="page">
 
-  <!-- ===== NAVBAR ===== -->
-  <header class="navbar" id="navbar">
-    <a href="index.html" class="navbar-logo">Poupaí</a>
-    <nav class="navbar-links" id="navbarLinks">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="sobre.html" class="nav-link">Sobre</a>
-      <a href="blog.html" class="nav-link">Blog</a>
-      <a href="calculadoras.html" class="nav-link active">Calculadoras</a>
-      <a href="#" class="nav-link nav-cta">Baixar App</a>
-    </nav>
-    <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Alternar tema" title="Alternar tema"></button>
-    <button class="hamburger" id="hamburger" aria-label="Abrir menu">
-      <span></span><span></span><span></span>
-    </button>
-  </header>
+<!-- ===== NAVBAR ===== -->
+<header class="navbar" id="navbar">
+  <a href="index.html" class="navbar-logo">
+    <svg class="navbar-logo-icon" viewBox="0 0 1294 1294" xmlns="http://www.w3.org/2000/svg">
+      <path d="M841.309 745.637C818.381 745.746 798.055 739.792 781.069 724.878C778.01 727.604 778.998 730.524 778.986 733.1C778.901 752.882 778.95 772.665 778.944 792.447C778.941 801.616 778.928 801.626 769.495 801.642C761.287 801.656 753.079 801.662 744.871 801.637C736.426 801.612 736.392 801.593 736.39 793.378C736.38 762.862 736.397 732.346 736.399 701.83C736.402 656.793 736.393 611.756 736.408 566.719C736.411 558.157 736.451 558.153 745.215 558.141C750.266 558.134 755.317 558.144 760.368 558.142C773.339 558.138 774.963 559.237 779.368 571.025C780.809 571.733 781.757 570.75 782.688 569.965C828.846 531.034 913.02 550.21 930.397 622.506C940.238 663.45 925.942 704.926 893.817 728.17C878.35 739.362 860.708 744.282 841.309 745.637ZM805.752 599.115C783.914 613.621 775.875 634.184 780.186 659.537C785.11 688.495 812.383 708.295 842.157 704.56C871.918 700.828 892.867 676.238 891.489 645.771C889.497 601.76 845.299 577.587 805.752 599.115Z" class="logo-path"/>
+      <path d="M74.1598 794.705C74.1558 718.3 74.1514 642.513 74.1573 566.727C74.158 558.154 74.1847 558.15 82.8758 558.141C88.5598 558.135 94.2439 558.125 99.9278 558.148C110.399 558.191 114.298 561.516 116.15 573.006C137.945 553.596 163.253 547.375 191.14 551.645C219.413 555.975 241.205 570.662 256.323 594.866C280.5 633.573 273.95 687.542 242.049 718.925C213.239 747.267 156.891 758.499 117.609 724.511C115.87 726.528 116.734 728.936 116.725 731.1C116.644 752.152 116.497 773.206 116.791 794.254C116.873 800.117 114.909 801.977 109.172 801.742C99.7141 801.355 90.2244 801.459 80.758 801.714C75.9965 801.842 73.4597 800.458 74.1598 794.705ZM166.626 704.756C171.881 704.743 177.162 705.266 182.372 704.229C211.061 698.519 229.075 675.673 228.501 645.771C227.803 609.364 193.084 583.191 158.048 592.657C130.059 600.219 114.671 623.468 116.633 655.23C118.158 679.932 138.748 700.79 166.626 704.756Z" class="logo-path"/>
+      <path d="M979.454 716.377C937.833 670.986 947.106 595.993 997.985 564.464C1030.06 544.586 1076.28 544.924 1104.78 570.489C1105.39 571.033 1106.11 571.453 1107.6 572.516C1107.83 567.348 1108.66 562.854 1112.88 560.064C1116.88 557.416 1121.4 558.181 1125.77 558.104C1132.08 557.994 1138.41 558.239 1144.71 557.899C1148.95 557.671 1150.34 559.335 1150.26 563.352C1150.11 570.718 1150.24 578.089 1150.24 585.458C1150.25 634.093 1150.26 682.728 1150.25 731.362C1150.24 739.661 1150.2 739.668 1141.76 739.692C1136.7 739.706 1131.65 739.703 1126.6 739.695C1112.6 739.676 1109.5 737.06 1107.43 722.818C1088.94 740.068 1066.99 746.976 1042.53 745.389C1018.13 743.806 996.84 734.676 979.454 716.377ZM996.663 636.068C996.406 641.098 995.762 646.142 995.954 651.155C997.316 686.708 1029.92 711.288 1064.74 703.807C1088.7 698.658 1109.74 675.597 1108.09 643.848C1106.56 614.237 1079.67 588.959 1050.1 590.686C1023.64 592.231 1003.54 609.021 996.663 636.068Z" class="logo-path"/>
+      <path d="M609.352 745.771C591.549 744.434 574.946 740.921 560.524 730.835C538.167 715.2 528.61 692.692 528.166 666.275C527.6 632.594 528.119 598.896 527.937 565.206C527.907 559.622 529.912 557.753 535.356 558.055C542.073 558.428 548.827 558.104 555.565 558.172C565.339 558.27 570.364 563.147 570.384 572.946C570.445 602.846 570.243 632.747 570.392 662.647C570.498 684.046 581.962 699.23 602.527 703.718C630.495 709.822 654.917 694.333 655.518 663.922C656.097 634.664 655.672 605.387 655.684 576.118C655.689 561.825 659.331 558.131 673.506 558.08C679.823 558.057 686.147 558.227 692.454 557.965C696.423 557.799 698.109 558.925 698.089 563.224C697.923 599.23 698.499 635.249 697.741 671.241C696.927 709.845 667.128 740.658 628.186 744.613C622.122 745.229 616.081 746.27 609.352 745.771Z" class="logo-path"/>
+      <path d="M378.516 548.779C426.173 539.128 473.691 566.057 491.528 604.518C519.151 664.081 483.728 732.936 419.065 744.579C376.388 752.264 334.017 735.011 312.067 701.01C278.66 649.264 297.764 583.752 354.093 556.766C361.733 553.106 369.698 550.536 378.516 548.779ZM383.255 705.715C393.022 707.89 403.042 708.293 412.759 706.846C419.366 705.863 422.623 707.573 424.759 713.359C426.016 716.764 428.222 718.581 432.341 718.654C446.432 718.905 446.43 719.076 447.984 705.145C448.054 704.518 448.194 703.871 448.114 703.258C447.44 698.079 449.678 694.655 453.918 691.703C459.992 687.474 465.072 682.081 469.117 675.825C470.561 673.591 472.233 672.262 475.051 671.752C488.743 669.273 488.79 669.181 490.802 655.242C491.25 652.139 490.888 648.927 491.205 645.796C491.714 640.765 489.179 638.08 484.591 637.596C477.455 636.843 474.293 632.381 470.661 626.624C463.95 615.988 457.19 606.136 467.118 593.623C459.377 591.952 458.661 596.643 457.268 600.841C455.986 604.703 457.028 609.611 451.703 613.028C449.958 602.911 454.426 594.607 456.294 585.564C449.494 586.516 443.556 588.209 438.742 592.021C434.587 595.311 430.725 595.347 425.925 594.056C409.127 589.539 392.046 588.997 375.505 594.431C355.18 601.108 338.571 612.674 331.051 634.086C330.195 636.523 330.255 640.053 326.542 640.094C323.093 640.131 319.378 640.093 317.125 635.982C321.12 633.176 326.247 631.108 324.372 624.868C323.643 622.442 321.937 620.88 319.392 620.624C311.816 619.864 311.674 626.944 308.734 631.374C302.477 628.282 305.651 623.08 305.961 617.017C303.461 622.974 301.603 628.183 305.133 631.233C311 636.303 315.515 643.671 324.089 644.999C327.241 645.488 328.852 646.627 329.118 650.121C330.337 666.095 337.679 678.955 349.839 689.14C352.338 691.233 353.287 693.484 353.152 696.772C352.869 703.653 353.066 710.553 353.066 717.76C355.863 719.286 359.322 718.09 362.579 718.581C369.605 719.639 374.314 717.271 376.656 710.25C377.453 707.859 378.453 704.752 383.255 705.715ZM403.837 555.585C402.389 555.396 400.934 555.001 399.495 555.05C391.369 555.328 385.301 562.076 385.901 570.047C386.493 577.931 393.711 583.546 401.87 582.294C407.916 581.367 411.63 577.716 412.912 571.774C414.466 564.565 412.154 560.23 403.837 555.585Z" class="logo-path"/>
+      <path d="M1225.16 557.352C1230.97 558.578 1229.48 562.867 1229.48 566.138C1229.58 616.048 1229.57 665.958 1229.58 715.868C1229.59 721.765 1229.47 727.664 1229.61 733.557C1229.72 738.057 1227.99 739.977 1223.27 739.848C1213.8 739.589 1204.3 739.468 1194.85 739.888C1188.95 740.149 1187.32 737.995 1187.34 732.29C1187.54 692.7 1187.44 653.108 1187.44 613.517C1187.44 597.091 1187.61 580.662 1187.35 564.24C1187.27 559.005 1189.07 557.125 1194.26 557.257C1204.37 557.515 1214.48 557.315 1225.16 557.352Z" class="logo-path"/>
+      <path d="M1214.41 484.032C1217.88 479.772 1221.13 475.911 1224.24 471.937C1226.49 469.056 1228.49 469.288 1231 471.713C1237.49 478.002 1244.08 484.202 1250.75 490.298C1253.28 492.604 1253.67 494.562 1251.2 497.161C1236.87 512.26 1222.59 527.398 1208.35 542.586C1205.87 545.234 1203.86 544.887 1201.47 542.515C1196.54 537.626 1191.59 532.756 1186.45 528.104C1183.42 525.365 1183.65 523.164 1186.09 520.112C1195.55 508.295 1204.8 496.306 1214.41 484.032Z" class="logo-path"/>
+      <path d="M411.813 596.153C414.623 596.652 416.972 596.871 419.115 597.654C421.2 598.415 424.789 598.172 423.738 602.12C422.764 605.778 420.081 606.142 416.78 605.435C409.16 603.801 401.495 603.052 393.677 604.155C390.358 604.623 386.962 604.634 383.787 605.826C378.541 607.796 376.556 605.074 375.352 599.939C387.166 595.346 399.106 594.857 411.813 596.153Z" class="logo-path"/>
+      <path d="M455.146 637.214C450.96 639.337 448.019 638.124 446.334 634.631C444.941 631.743 445.586 628.795 448.315 626.777C450.943 624.834 453.659 625.543 455.769 627.558C458.942 630.588 458.478 633.861 455.146 637.214Z" class="logo-path"/>
+      <path d="M318.75 631.308C315.657 632.349 313.671 631.697 313.395 628.692C313.193 626.504 314.246 624.666 316.267 623.582C317.887 622.712 319.601 622.643 320.738 624.218C322.732 626.978 321.708 629.253 318.75 631.308Z" class="logo-path"/>
+      <path d="M393.828 572.508C395.183 572.306 396.219 572.257 397.214 572.438C398.184 572.613 399.112 573.023 401.254 573.719C398.961 569.532 394.558 568.591 393.722 564.815C392.678 560.094 397.089 559.193 399.184 556.191C401.466 558.187 404.059 559.164 404.945 561.723C403.89 564.638 401.486 563.688 398.952 563.798C402.301 567.15 408.591 567.856 406.105 573.913C404.921 576.797 402.527 580.149 399.386 579.518C396.72 578.982 392.922 577.192 393.828 572.508Z" class="logo-path"/>
+    </svg>
+  </a>
+  <nav class="navbar-links" id="navbarLinks">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="sobre.html" class="nav-link">Sobre</a>
+    <a href="blog.html" class="nav-link">Blog</a>
+    <a href="calculadoras.html" class="nav-link active">Calculadoras</a>
+    <a href="#" class="nav-link nav-cta">Baixar App</a>
+  </nav>
+  <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Alternar tema" title="Alternar tema"></button>
+  <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
 
-  <main class="page-main">
+<main class="page-main">
 
-    <!-- HEADER DA PÁGINA -->
-    <section class="page-section">
-      <a href="calculadoras.html" class="back-link">← Voltar para Calculadoras</a>
-      <div class="page-tag">Calculadora</div>
-      <h1 class="page-title">Simulador de <span class="grad1">Aposentadoria</span></h1>
-      <p class="page-desc">Descubra quanto você precisa investir todo mês para se aposentar no prazo e com o patrimônio que você deseja.</p>
-    </section>
+  <!-- HEADER DA PÁGINA -->
+  <section class="page-section">
+    <a href="calculadoras.html" class="back-link">← Voltar para Calculadoras</a>
+    <div class="page-tag">Calculadora</div>
+    <h1 class="page-title">Simulador de <span class="grad1">Aposentadoria</span></h1>
+    <p class="page-desc">Descubra quanto você precisa investir todo mês para se aposentar no prazo e com o patrimônio que você deseja.</p>
+  </section>
 
-    <!-- CALCULADORA -->
-    <section class="page-section apos-section">
+  <!-- CALCULADORA -->
+  <section class="page-section apos-section">
 
-      <!-- FORMULÁRIO EM GRID -->
-      <div class="apos-form">
+    <!-- FORMULÁRIO EM GRID -->
+    <div class="apos-form">
 
-        <div class="apos-form-grid">
+      <div class="apos-form-grid">
 
-          <div class="input-group">
-            <label for="rendaMensal">Renda mensal atual</label>
-            <div class="input-wrap">
-              <span class="input-prefix">R$</span>
-              <input type="number" id="rendaMensal" placeholder="5.000,00" min="0" step="100">
-            </div>
-          </div>
-
-          <div class="input-group">
-            <label for="patrimonioAtual">Patrimônio já investido</label>
-            <div class="input-wrap">
-              <span class="input-prefix">R$</span>
-              <input type="number" id="patrimonioAtual" placeholder="50.000,00" min="0" step="1000">
-            </div>
-          </div>
-
-          <div class="input-group">
-            <label for="metaPatrimonio">Meta de patrimônio na aposentadoria</label>
-            <div class="input-wrap">
-              <span class="input-prefix">R$</span>
-              <input type="number" id="metaPatrimonio" placeholder="1.000.000,00" min="0" step="10000">
-            </div>
-          </div>
-
-          <div class="input-group">
-            <label for="percentualInvestido">% da renda que você investe hoje</label>
-            <div class="input-wrap">
-              <input type="number" id="percentualInvestido" placeholder="20" min="0" max="100" step="1">
-              <span class="input-suffix">%</span>
-            </div>
-          </div>
-
-          <div class="input-group">
-            <label for="idadeAtual">Sua idade atual</label>
-            <div class="input-wrap">
-              <input type="number" id="idadeAtual" placeholder="30" min="1" max="99" step="1">
-              <span class="input-suffix">anos</span>
-            </div>
-          </div>
-
-          <div class="input-group">
-            <label for="idadeAposentadoria">Idade para se aposentar</label>
-            <div class="input-wrap">
-              <input type="number" id="idadeAposentadoria" placeholder="65" min="1" max="99" step="1">
-              <span class="input-suffix">anos</span>
-            </div>
-          </div>
-
-          <div class="input-group">
-            <label for="rentabilidade">Rentabilidade anual projetada</label>
-            <div class="input-wrap">
-              <input type="number" id="rentabilidade" placeholder="10" min="0" step="0.1">
-              <span class="input-suffix">% a.a.</span>
-            </div>
-          </div>
-
-          <div class="input-group">
-            <label for="gastoAposentado">Gasto mensal desejado na aposentadoria</label>
-            <div class="input-wrap">
-              <span class="input-prefix">R$</span>
-              <input type="number" id="gastoAposentado" placeholder="10.000,00" min="0" step="100">
-            </div>
-          </div>
-
-        </div>
-
-        <div class="apos-form-actions">
-          <button class="btn-calcular" onclick="calcularAposentadoria()">Calcular</button>
-          <button class="btn-limpar" onclick="limpar()">Limpar</button>
-        </div>
-
-      </div>
-
-      <!-- RESULTADOS -->
-      <div class="apos-results" id="results" style="display:none">
-
-        <!-- CARDS RESUMO -->
-        <div class="result-cards">
-          <div class="result-card highlight">
-            <span class="result-label">Aporte mensal necessário</span>
-            <span class="result-value" id="resAporte">—</span>
-          </div>
-          <div class="result-card">
-            <span class="result-label">Patrimônio na aposentadoria</span>
-            <span class="result-value" id="resPatrimonio">—</span>
-          </div>
-          <div class="result-card">
-            <span class="result-label">Anos até se aposentar</span>
-            <span class="result-value" id="resAnos">—</span>
-          </div>
-          <div class="result-card">
-            <span class="result-label">Renda mensal gerada</span>
-            <span class="result-value" id="resRenda">—</span>
+        <div class="input-group">
+          <label for="rendaMensal">Renda mensal atual</label>
+          <div class="input-wrap">
+            <span class="input-prefix">R$</span>
+            <input type="number" id="rendaMensal" placeholder="5.000,00" min="0" step="100">
           </div>
         </div>
 
-        <!-- DIAGNÓSTICO -->
-        <div class="diagnostico" id="diagnostico"></div>
-
-        <!-- GRÁFICO -->
-        <div class="chart-wrap">
-          <div class="chart-header">
-            <h3 class="table-title">Evolução do patrimônio</h3>
-            <div class="chart-toggle">
-              <button class="toggle-btn active" id="btnMensal" onclick="alternarGrafico('mensal')">Mensal</button>
-              <button class="toggle-btn" id="btnAnual" onclick="alternarGrafico('anual')">Anual</button>
-            </div>
-          </div>
-          <div class="chart-legend">
-            <span class="legend-item"><span class="legend-dot" style="background:#6C3AFF"></span>Patrimônio atual</span>
-            <span class="legend-item"><span class="legend-dot" style="background:#00D2C8"></span>Aportes acumulados</span>
-            <span class="legend-item"><span class="legend-dot" style="background:#3AFFA3"></span>Juros acumulados</span>
-          </div>
-          <div class="chart-container">
-            <canvas id="graficoAposentadoria"></canvas>
+        <div class="input-group">
+          <label for="patrimonioAtual">Patrimônio já investido</label>
+          <div class="input-wrap">
+            <span class="input-prefix">R$</span>
+            <input type="number" id="patrimonioAtual" placeholder="50.000,00" min="0" step="1000">
           </div>
         </div>
 
-        <!-- TABELA EVOLUÇÃO -->
-        <div class="table-wrap">
-          <h3 class="table-title">Evolução ano a ano</h3>
-          <div class="table-scroll">
-            <table>
-              <thead>
-                <tr>
-                  <th>Ano</th>
-                  <th>Idade</th>
-                  <th>Aporte anual</th>
-                  <th>Juros do ano</th>
-                  <th>Total investido</th>
-                  <th>Patrimônio</th>
-                </tr>
-              </thead>
-              <tbody id="tabelaBody"></tbody>
-            </table>
+        <div class="input-group">
+          <label for="metaPatrimonio">Meta de patrimônio na aposentadoria</label>
+          <div class="input-wrap">
+            <span class="input-prefix">R$</span>
+            <input type="number" id="metaPatrimonio" placeholder="1.000.000,00" min="0" step="10000">
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="percentualInvestido">% da renda que você investe hoje</label>
+          <div class="input-wrap">
+            <input type="number" id="percentualInvestido" placeholder="20" min="0" max="100" step="1">
+            <span class="input-suffix">%</span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="idadeAtual">Sua idade atual</label>
+          <div class="input-wrap">
+            <input type="number" id="idadeAtual" placeholder="30" min="1" max="99" step="1">
+            <span class="input-suffix">anos</span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="idadeAposentadoria">Idade para se aposentar</label>
+          <div class="input-wrap">
+            <input type="number" id="idadeAposentadoria" placeholder="65" min="1" max="99" step="1">
+            <span class="input-suffix">anos</span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="rentabilidade">Rentabilidade anual projetada</label>
+          <div class="input-wrap">
+            <input type="number" id="rentabilidade" placeholder="10" min="0" step="0.1">
+            <span class="input-suffix">% a.a.</span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="gastoAposentado">Gasto mensal desejado na aposentadoria</label>
+          <div class="input-wrap">
+            <span class="input-prefix">R$</span>
+            <input type="number" id="gastoAposentado" placeholder="10.000,00" min="0" step="100">
           </div>
         </div>
 
       </div>
-    </section>
 
-  </main>
+      <div class="apos-form-actions">
+        <button class="btn-calcular" onclick="calcularAposentadoria()">Calcular</button>
+        <button class="btn-limpar" onclick="limpar()">Limpar</button>
+      </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-  <script src="assets/js/script.js"></script>
-  <script src="assets/js/calculadoras/aposentadoria.js"></script>
+    </div>
+
+    <!-- RESULTADOS -->
+    <div class="apos-results" id="results" style="display:none">
+
+      <!-- CARDS RESUMO -->
+      <div class="result-cards">
+        <div class="result-card highlight">
+          <span class="result-label">Aporte mensal necessário</span>
+          <span class="result-value" id="resAporte">—</span>
+        </div>
+        <div class="result-card">
+          <span class="result-label">Patrimônio na aposentadoria</span>
+          <span class="result-value" id="resPatrimonio">—</span>
+        </div>
+        <div class="result-card">
+          <span class="result-label">Anos até se aposentar</span>
+          <span class="result-value" id="resAnos">—</span>
+        </div>
+        <div class="result-card">
+          <span class="result-label">Renda mensal gerada</span>
+          <span class="result-value" id="resRenda">—</span>
+        </div>
+      </div>
+
+      <!-- DIAGNÓSTICO -->
+      <div class="diagnostico" id="diagnostico"></div>
+
+      <!-- GRÁFICO -->
+      <div class="chart-wrap">
+        <div class="chart-header">
+          <h3 class="table-title">Evolução do patrimônio</h3>
+          <div class="chart-toggle">
+            <button class="toggle-btn active" id="btnMensal" onclick="alternarGrafico('mensal')">Mensal</button>
+            <button class="toggle-btn" id="btnAnual" onclick="alternarGrafico('anual')">Anual</button>
+          </div>
+        </div>
+        <div class="chart-legend">
+          <span class="legend-item"><span class="legend-dot" style="background:#6C3AFF"></span>Patrimônio atual</span>
+          <span class="legend-item"><span class="legend-dot" style="background:#00D2C8"></span>Aportes acumulados</span>
+          <span class="legend-item"><span class="legend-dot" style="background:#3AFFA3"></span>Juros acumulados</span>
+        </div>
+        <div class="chart-container">
+          <canvas id="graficoAposentadoria"></canvas>
+        </div>
+      </div>
+
+      <!-- TABELA EVOLUÇÃO -->
+      <div class="table-wrap">
+        <h3 class="table-title">Evolução ano a ano</h3>
+        <div class="table-scroll">
+          <table>
+            <thead>
+            <tr>
+              <th>Ano</th>
+              <th>Idade</th>
+              <th>Aporte anual</th>
+              <th>Juros do ano</th>
+              <th>Total investido</th>
+              <th>Patrimônio</th>
+            </tr>
+            </thead>
+            <tbody id="tabelaBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="assets/js/calculadoras/aposentadoria.js"></script>
 </body>
 </html>
