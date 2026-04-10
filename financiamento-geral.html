@@ -3,15 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Financiamento Geral — Poupaí</title>
+
+  <title>Calculadora de Financiamento — Simule Parcelas e Juros | Poupaí</title>
+  <meta name="description" content="Simule parcelas, total de juros e custo real de qualquer financiamento ou empréstimo. Compare SAC e PRICE, calcule veículo, pessoal ou consignado. Grátis.">
+  <meta name="keywords" content="calculadora financiamento, simulador financiamento, calcular parcela empréstimo, simulador empréstimo pessoal, financiamento veículo calculadora, tabela price SAC financiamento">
+  <meta name="author" content="Poupaí">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://poupai.io/financiamento-geral">
+
+  <meta property="og:title" content="Calculadora de Financiamento — Simule Parcelas e Juros | Poupaí">
+  <meta property="og:description" content="Simule parcelas, total de juros e custo real de qualquer financiamento. Compare SAC e PRICE. Grátis e online.">
+  <meta property="og:url" content="https://poupai.io/financiamento-geral">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Poupaí">
+  <meta property="og:locale" content="pt_BR">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Calculadora de Financiamento — Poupaí">
+  <meta name="twitter:description" content="Simule parcelas e juros de qualquer financiamento ou empréstimo. Grátis.">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculadora de Financiamento",
+      "description": "Simule parcelas, total de juros e custo real de financiamentos e empréstimos. Compare os sistemas SAC e PRICE para veículos, pessoal, consignado e outros.",
+      "url": "https://poupai.io/financiamento-geral",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "pt-BR",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" },
+      "publisher": { "@type": "Organization", "name": "Poupaí", "url": "https://poupai.io" }
+    }
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Como calcular o valor da parcela de um financiamento?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Para calcular a parcela de um financiamento na tabela PRICE, usa-se a fórmula: PMT = PV × [i × (1+i)^n] / [(1+i)^n - 1], onde PV é o valor financiado, i é a taxa mensal e n é o número de parcelas. No SAC, a parcela inicial é: (Valor financiado ÷ n) + (Valor financiado × taxa). Nossa calculadora faz esse cálculo automaticamente para qualquer modalidade."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual a taxa de juros média para financiamento de veículos no Brasil?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Em 2025, as taxas de financiamento de veículos variam entre 1,2% e 2,5% ao mês, dependendo do banco, do perfil do cliente e do valor de entrada. Bancos digitais e fintechs costumam praticar taxas mais competitivas. Sempre compare o CET (Custo Efetivo Total), não apenas a taxa nominal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Vale a pena dar uma entrada maior no financiamento?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Quase sempre sim. Uma entrada maior reduz o valor financiado, o que diminui tanto o valor das parcelas quanto o total de juros pago ao longo do contrato. Em um financiamento de R$ 50.000 a 1,5% ao mês por 48 meses, aumentar a entrada de 20% para 40% pode economizar mais de R$ 5.000 em juros."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "O que é o CET (Custo Efetivo Total)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "O CET é o custo real total do financiamento, incluindo juros, seguros, tarifas e outros encargos. É sempre maior que a taxa nominal anunciada. Por lei, o banco é obrigado a informar o CET antes da contratação. Use o CET para comparar propostas de diferentes bancos — não a taxa nominal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Vale a pena antecipar parcelas do financiamento?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Geralmente sim, especialmente se a taxa do financiamento for maior que o rendimento dos seus investimentos. A antecipação reduz o saldo devedor e, portanto, os juros futuros. No SAC, você pode escolher reduzir o prazo ou o valor das parcelas. Na PRICE, a antecipação geralmente reduz o prazo do contrato."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual a diferença entre empréstimo pessoal e financiamento?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No financiamento, o dinheiro tem destinação específica (veículo, imóvel, bem) e o bem financia fica alienado como garantia — por isso as taxas são menores. No empréstimo pessoal, o dinheiro é liberado sem destinação específica, sem garantia, o que resulta em taxas mais altas (2% a 8% ao mês). O consignado desconta na folha e tem as menores taxas."
+          }
+        }
+      ]
+    }
+  </script>
+
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/pages.css">
   <link rel="stylesheet" href="assets/css/financiamento-geral.css">
   <link rel="stylesheet" href="assets/css/theme.css">
-  <script src="assets/js/theme.js" defer></script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5428589425010946"
-          crossorigin="anonymous"></script>
+  <script src="assets/js/theme.js"></script>
 </head>
 <body class="page">
 
@@ -71,7 +160,7 @@
           <label for="valorBem">Valor do bem</label>
           <div class="input-wrap">
             <span class="input-prefix">R$</span>
-            <input type="number" id="valorBem" placeholder="50.000,00" min="0" step="500">
+            <input type="text" id="valorBem" placeholder="50.000,00" inputmode="numeric">
           </div>
         </div>
 
@@ -79,7 +168,7 @@
           <label for="entradaGeral">Valor da entrada</label>
           <div class="input-wrap">
             <span class="input-prefix">R$</span>
-            <input type="number" id="entradaGeral" placeholder="10.000,00" min="0" step="500">
+            <input type="text" id="entradaGeral" placeholder="10.000,00" inputmode="numeric">
           </div>
           <span class="input-hint" id="pctEntradaGeral"></span>
         </div>
@@ -107,7 +196,7 @@
           <label for="rendaGeral">Renda mensal <span class="label-opt">(opcional)</span></label>
           <div class="input-wrap">
             <span class="input-prefix">R$</span>
-            <input type="number" id="rendaGeral" placeholder="5.000,00" min="0" step="100">
+            <input type="text" id="rendaGeral" placeholder="5.000,00" inputmode="numeric">
           </div>
           <span class="input-hint">Para verificar comprometimento de renda</span>
         </div>
@@ -116,7 +205,7 @@
           <label for="seguro">Seguro mensal <span class="label-opt">(opcional)</span></label>
           <div class="input-wrap">
             <span class="input-prefix">R$</span>
-            <input type="number" id="seguro" placeholder="0,00" min="0" step="10">
+            <input type="text" id="seguro" placeholder="0,00" inputmode="numeric">
           </div>
           <span class="input-hint">Valor embutido na parcela, se houver</span>
         </div>
@@ -246,8 +335,68 @@
 
 </main>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-<script src="assets/js/script.js"></script>
-<script src="assets/js/calculadoras/financiamento-geral.js"></script>
+<!-- CONTEÚDO EDITORIAL -->
+<main class="page-main">
+
+  <section class="page-section seo-content">
+    <h2>Como funciona o cálculo de parcelas de um financiamento?</h2>
+    <p>O valor da parcela de um financiamento depende de três fatores: o <strong>valor financiado</strong> (após a entrada), a <strong>taxa de juros</strong> e o <strong>número de parcelas</strong>. O sistema de amortização escolhido — PRICE ou SAC — define se as parcelas serão fixas ou decrescentes ao longo do contrato.</p>
+
+    <div class="formula-box">
+      <strong>PRICE: PMT = PV × [i × (1+i)ⁿ] / [(1+i)ⁿ − 1]</strong>
+      <p>Parcelas fixas · Mais juros no total · Mais usado em veículos e empréstimos pessoais</p>
+    </div>
+    <div class="formula-box" style="border-left-color: var(--c2);">
+      <strong>SAC: Parcela = (PV ÷ n) + (Saldo devedor × i)</strong>
+      <p>Parcelas decrescentes · Menos juros no total · Mais usado em financiamento imobiliário</p>
+    </div>
+
+    <h2>Tipos de financiamento e suas taxas típicas</h2>
+    <p>As taxas variam bastante conforme a modalidade e o perfil do cliente. Use nossa calculadora com os valores reais da proposta que você recebeu do banco:</p>
+    <ol class="seo-list">
+      <li><strong>Financiamento de veículos:</strong> 1,2% a 2,5% ao mês. O bem fica alienado como garantia, o que reduz o risco do banco. Compare sempre entre banco, montadora e fintechs.</li>
+      <li><strong>Empréstimo consignado:</strong> 1,5% a 2,5% ao mês. Desconto direto na folha ou benefício do INSS — menor risco, menor taxa. Melhor opção para aposentados e servidores.</li>
+      <li><strong>Empréstimo pessoal:</strong> 2% a 8% ao mês. Sem garantia específica, taxa mais alta. Usar apenas para necessidades de curto prazo com capacidade de pagamento clara.</li>
+      <li><strong>Financiamento imobiliário:</strong> 0,8% a 1,1% ao mês (10% a 13% ao ano). Prazo longo, menor taxa. Veja nossa <a href="/financiamento-imobiliario">calculadora específica para imóveis</a>.</li>
+    </ol>
+
+    <h2>O que é o CET e por que ele importa?</h2>
+    <p>O <strong>CET (Custo Efetivo Total)</strong> é o custo real do financiamento, incluindo juros, seguros, tarifas de cadastro e outros encargos. É sempre maior que a taxa nominal anunciada pelo banco. Por lei, a instituição é obrigada a informar o CET antes da contratação. <strong>Sempre compare o CET entre propostas — nunca apenas a taxa nominal.</strong></p>
+
+    <h2>Vale a pena dar entrada maior?</h2>
+    <p>Quase sempre sim. Em um financiamento de R$ 50.000 a 1,5% ao mês por 48 meses, aumentar a entrada de 20% para 40% reduz o valor financiado de R$ 40.000 para R$ 30.000, economizando mais de R$ 5.000 em juros ao longo do contrato. Use nossa calculadora para simular diferentes cenários de entrada e veja o impacto real no total pago.</p>
+  </section>
+
+  <section class="page-section seo-faq">
+    <h2>Perguntas frequentes sobre financiamento</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>Como saber se a taxa de juros da proposta é justa?</h3>
+        <p>Compare com as taxas médias praticadas pelo mercado disponíveis no site do Banco Central (bcb.gov.br). Veículos novos costumam ter taxas menores que usados. Bancos digitais e fintechs como Banco Inter, C6 Bank e BV costumam praticar taxas mais competitivas que bancos tradicionais. Nunca aceite a primeira proposta sem simular em outros bancos.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Posso antecipar parcelas do financiamento?</h3>
+        <p>Sim, e quase sempre vale a pena quando a taxa do financiamento supera o rendimento dos seus investimentos. A antecipação reduz o saldo devedor e os juros futuros. Por lei, você tem direito à redução proporcional dos juros ao antecipar. Prefira antecipar parcelas do final do contrato — são as que têm maior saldo de juros embutido no SAC.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Quanto tempo demora a aprovação de um financiamento?</h3>
+        <p>Para empréstimos pessoais e consignados online, a aprovação pode ser instantânea. Financiamentos de veículos levam de 1 a 3 dias úteis. Financiamentos imobiliários podem levar de 15 a 45 dias, incluindo análise de crédito, avaliação do imóvel e formalização em cartório. Ter a documentação completa acelera o processo significativamente.</p>
+      </div>
+      <div class="faq-item">
+        <h3>O financiamento prejudica meu score de crédito?</h3>
+        <p>Contratar um financiamento pode reduzir temporariamente o score por aumentar o comprometimento de renda. No entanto, pagar as parcelas em dia regularmente tende a melhorar o score ao longo do tempo, pois demonstra bom histórico de pagamento. O importante é não comprometer mais de 30% da renda com dívidas.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Qual a diferença entre taxa nominal e taxa efetiva?</h3>
+        <p>A taxa nominal é a taxa anunciada pelo banco, geralmente mensal. A taxa efetiva considera a capitalização composta — ou seja, juros sobre juros. Uma taxa de 1,5% ao mês corresponde a uma taxa efetiva de aproximadamente 19,6% ao ano, não 18% (1,5% × 12). Nossa calculadora usa a taxa efetiva para garantir o cálculo correto.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" defer></script>
+<script src="assets/js/script.js" defer></script>
+<script src="assets/js/calculadoras/financiamento-geral.js" defer></script>
 </body>
 </html>

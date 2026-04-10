@@ -3,6 +3,37 @@
 //  Financiamento PRICE — carro, moto, etc.
 // =============================================
 
+// =============================================
+//  FORMATAÇÃO DE INPUTS MONETÁRIOS
+// =============================================
+function extrairValor(id) {
+  const raw = document.getElementById(id).value;
+  return parseFloat(raw.replace(/\./g, '').replace(',', '.')) || 0;
+}
+
+function aoSairDoInput(id) {
+  const input = document.getElementById(id);
+  const valor = parseFloat(input.value.replace(/\./g, '').replace(',', '.'));
+  if (!isNaN(valor) && valor > 0) {
+    input.value = valor.toLocaleString('pt-BR', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+  }
+}
+
+function aoEntrarNoInput(id) {
+  const input = document.getElementById(id);
+  const valor = parseFloat(input.value.replace(/\./g, '').replace(',', '.'));
+  if (!isNaN(valor) && valor > 0) input.value = valor;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  ['valorBem', 'entradaGeral', 'rendaGeral', 'seguro'].forEach(id => {
+    const input = document.getElementById(id);
+    if (!input) return;
+    input.addEventListener('blur',  () => aoSairDoInput(id));
+    input.addEventListener('focus', () => aoEntrarNoInput(id));
+  });
+});
+
 let graficoGeralInstance = null;
 let dadosGeral           = [];
 let paramsGeral          = {};
@@ -25,8 +56,8 @@ document.getElementById('valorBem').addEventListener('input', atualizarHints);
 document.getElementById('taxaMensalGeral').addEventListener('input', atualizarTaxaAnual);
 
 function atualizarHints() {
-  const val  = parseFloat(document.getElementById('valorBem').value)     || 0;
-  const ent  = parseFloat(document.getElementById('entradaGeral').value) || 0;
+  const val  = extrairValor('valorBem');
+  const ent  = extrairValor('entradaGeral');
   const hint = document.getElementById('pctEntradaGeral');
   if (val > 0 && ent > 0) {
     const pct = (ent / val * 100).toFixed(1);
@@ -78,12 +109,12 @@ function calcularPRICEGeral(financiado, n, taxaMensal, seguro) {
 //  CALCULAR PRINCIPAL
 // =============================================
 function calcularFinanciamentoGeral() {
-  const valorBem   = parseFloat(document.getElementById('valorBem').value)         || 0;
-  const entrada    = parseFloat(document.getElementById('entradaGeral').value)     || 0;
+  const valorBem   = extrairValor('valorBem');
+  const entrada    = extrairValor('entradaGeral');
   const prazo      = parseInt(document.getElementById('prazoMeses').value)         || 0;
   const taxaMes    = parseFloat(document.getElementById('taxaMensalGeral').value)  || 0;
-  const renda      = parseFloat(document.getElementById('rendaGeral').value)       || 0;
-  const seguro     = parseFloat(document.getElementById('seguro').value)           || 0;
+  const renda      = extrairValor('rendaGeral');
+  const seguro     = extrairValor('seguro');
 
   if (valorBem <= 0 || prazo <= 0 || taxaMes <= 0) {
     alert('Preencha valor do bem, prazo e taxa de juros.');
@@ -346,7 +377,7 @@ function chartOptionsGeral() {
 // =============================================
 function limparGeral() {
   ['valorBem','entradaGeral','prazoMeses','taxaMensalGeral','rendaGeral','seguro']
-    .forEach(id => document.getElementById(id).value = '');
+      .forEach(id => document.getElementById(id).value = '');
 
   document.getElementById('pctEntradaGeral').textContent = '';
   document.getElementById('taxaAnualEquiv').textContent  = '';
