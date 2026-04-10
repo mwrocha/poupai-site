@@ -1,4 +1,16 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/index.html",                    "destination": "/",                      "permanent": true },
+    { "source": "/sobre.html",                    "destination": "/sobre",                 "permanent": true },
+    { "source": "/blog.html",                     "destination": "/blog",                  "permanent": true },
+    { "source": "/calculadoras.html",             "destination": "/calculadoras",          "permanent": true },
+    { "source": "/juros-compostos.html",          "destination": "/juros-compostos",       "permanent": true },
+    { "source": "/aposentadoria.html",            "destination": "/aposentadoria",         "permanent": true },
+    { "source": "/reserva-emergencia.html",       "destination": "/reserva-emergencia",    "permanent": true },
+    { "source": "/financiamento-imobiliario.html","destination": "/financiamento-imobiliario", "permanent": true },
+    { "source": "/financiamento-geral.html",      "destination": "/financiamento-geral",   "permanent": true },
+    { "source": "/inflacao.html",                 "destination": "/inflacao",              "permanent": true }
+  ]
 }
