@@ -3,6 +3,37 @@
 //  Lógica da calculadora de reserva de emergência
 // =============================================
 
+// =============================================
+//  FORMATAÇÃO DE INPUTS MONETÁRIOS
+// =============================================
+function extrairValor(id) {
+  const raw = document.getElementById(id).value;
+  return parseFloat(raw.replace(/\./g, '').replace(',', '.')) || 0;
+}
+
+function aoSairDoInput(id) {
+  const input = document.getElementById(id);
+  const valor = parseFloat(input.value.replace(/\./g, '').replace(',', '.'));
+  if (!isNaN(valor) && valor > 0) {
+    input.value = valor.toLocaleString('pt-BR', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+  }
+}
+
+function aoEntrarNoInput(id) {
+  const input = document.getElementById(id);
+  const valor = parseFloat(input.value.replace(/\./g, '').replace(',', '.'));
+  if (!isNaN(valor) && valor > 0) input.value = valor;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  ['rendaMensal', 'gastosMensais', 'valorGuardado', 'aporteReserva'].forEach(id => {
+    const input = document.getElementById(id);
+    if (!input) return;
+    input.addEventListener('blur',  () => aoSairDoInput(id));
+    input.addEventListener('focus', () => aoEntrarNoInput(id));
+  });
+});
+
 // Estado do quiz
 const perfil = {
   vinculo:     null,
@@ -39,7 +70,7 @@ function formatBRL(valor) {
 function selecionarOpcao(campo, valor, el) {
   // Remove seleção anterior no mesmo step
   el.closest('.quiz-options').querySelectorAll('.quiz-option')
-    .forEach(o => o.classList.remove('selected'));
+      .forEach(o => o.classList.remove('selected'));
 
   el.classList.add('selected');
   perfil[campo] = valor;
@@ -107,10 +138,10 @@ function calcularMesesRecomendados() {
 //  CÁLCULO PRINCIPAL
 // =============================================
 function calcularReserva() {
-  const rendaMensal   = parseFloat(document.getElementById('rendaMensal').value)   || 0;
-  const gastosMensais = parseFloat(document.getElementById('gastosMensais').value) || 0;
-  const valorGuardado = parseFloat(document.getElementById('valorGuardado').value) || 0;
-  const aporte        = parseFloat(document.getElementById('aporteReserva').value) || 0;
+  const rendaMensal   = extrairValor('rendaMensal');
+  const gastosMensais = extrairValor('gastosMensais');
+  const valorGuardado = extrairValor('valorGuardado');
+  const aporte        = extrairValor('aporteReserva');
   const investimento  = document.getElementById('investimento').value;
 
   if (gastosMensais <= 0) {
@@ -135,8 +166,8 @@ function calcularReserva() {
   document.getElementById('resMeses').textContent    = mesesRecomendados + ' meses';
   document.getElementById('resGuardado').textContent = formatBRL(valorGuardado);
   document.getElementById('resPrazo').textContent    = prazoMeses <= 0
-    ? '✅ Completa!'
-    : formatarPrazo(prazoMeses);
+      ? '✅ Completa!'
+      : formatarPrazo(prazoMeses);
 
   // Diagnóstico
   const pct  = (valorGuardado / meta) * 100;
@@ -200,7 +231,7 @@ function montarComparativo(falta, prazoBase, meta) {
     { key: 'tesouro',  nome: 'Tesouro Selic', taxa: taxas.tesouro,  tag: true  }
   ];
 
-  const aporteAtual = parseFloat(document.getElementById('aporteReserva').value) || 0;
+  const aporteAtual = extrairValor('aporteReserva');
 
   investimentos.forEach(inv => {
     const prazo    = calcularPrazo(falta, aporteAtual, inv.taxa);
