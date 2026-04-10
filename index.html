@@ -3,28 +3,79 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Poupaí — Dinheiro sob controle</title>
+
+  <!-- SEO básico -->
+  <title>Poupaí — App de Controle Financeiro e Calculadoras Gratuitas</title>
+  <meta name="description" content="Poupaí é o app de finanças pessoais para controlar gastos, acompanhar investimentos e conquistar objetivos financeiros. Calculadoras gratuitas de juros, financiamento e aposentadoria.">
+  <meta name="keywords" content="app controle financeiro, finanças pessoais, controle de gastos, calculadora financeira, investimentos, planejamento financeiro, app finanças Brasil">
+  <meta name="author" content="Poupaí">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://poupai.io">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Poupaí — App de Controle Financeiro e Calculadoras Gratuitas">
+  <meta property="og:description" content="Controle gastos, acompanhe investimentos e use calculadoras financeiras gratuitas. Tudo para o seu dinheiro trabalhar melhor por você.">
+  <meta property="og:url" content="https://poupai.io">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Poupaí">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Poupaí — App de Controle Financeiro">
+  <meta name="twitter:description" content="Controle gastos, acompanhe investimentos e use calculadoras financeiras gratuitas.">
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MobileApplication",
+      "name": "Poupaí",
+      "description": "App de finanças pessoais para controlar gastos, acompanhar investimentos e conquistar objetivos financeiros. Inclui calculadoras gratuitas de juros compostos, financiamento, aposentadoria e muito mais.",
+      "url": "https://poupai.io",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Android, iOS",
+      "inLanguage": "pt-BR",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Poupaí",
+        "url": "https://poupai.io"
+      }
+    }
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Poupaí",
+      "url": "https://poupai.io",
+      "description": "App e ferramentas gratuitas de finanças pessoais para brasileiros",
+      "inLanguage": "pt-BR",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://poupai.io/calculadoras",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
+
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/theme.css">
-  <meta name="description" content="Poupaí — Gerencie suas finanças, invista melhor e conquiste seus objetivos financeiros.">
-  <meta name="keywords" content="finanças pessoais, calculadora financeira, juros compostos, aposentadoria">
-  <meta name="author" content="Poupaí">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Poupaí — Dinheiro sob controle">
-  <meta property="og:description" content="Gerencie gastos, invista melhor e conquiste seus objetivos financeiros.">
-  <meta property="og:url" content="https://poupai.io">
-  <meta property="og:type" content="website">
-  <script src="assets/js/theme.js" defer></script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5428589425010946"
-          crossorigin="anonymous"></script>
+  <script src="assets/js/theme.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5428589425010946" crossorigin="anonymous"></script>
 </head>
 <body>
 
 <!-- ===== NAVBAR ===== -->
 <header class="navbar" id="navbar">
-  <a href="index.html" class="navbar-logo">
+  <a href="/" class="navbar-logo">
     <svg class="navbar-logo-icon" viewBox="0 0 1294 1294" xmlns="http://www.w3.org/2000/svg">
       <path d="M841.309 745.637C818.381 745.746 798.055 739.792 781.069 724.878C778.01 727.604 778.998 730.524 778.986 733.1C778.901 752.882 778.95 772.665 778.944 792.447C778.941 801.616 778.928 801.626 769.495 801.642C761.287 801.656 753.079 801.662 744.871 801.637C736.426 801.612 736.392 801.593 736.39 793.378C736.38 762.862 736.397 732.346 736.399 701.83C736.402 656.793 736.393 611.756 736.408 566.719C736.411 558.157 736.451 558.153 745.215 558.141C750.266 558.134 755.317 558.144 760.368 558.142C773.339 558.138 774.963 559.237 779.368 571.025C780.809 571.733 781.757 570.75 782.688 569.965C828.846 531.034 913.02 550.21 930.397 622.506C940.238 663.45 925.942 704.926 893.817 728.17C878.35 739.362 860.708 744.282 841.309 745.637ZM805.752 599.115C783.914 613.621 775.875 634.184 780.186 659.537C785.11 688.495 812.383 708.295 842.157 704.56C871.918 700.828 892.867 676.238 891.489 645.771C889.497 601.76 845.299 577.587 805.752 599.115Z" class="logo-path"/>
       <path d="M74.1598 794.705C74.1558 718.3 74.1514 642.513 74.1573 566.727C74.158 558.154 74.1847 558.15 82.8758 558.141C88.5598 558.135 94.2439 558.125 99.9278 558.148C110.399 558.191 114.298 561.516 116.15 573.006C137.945 553.596 163.253 547.375 191.14 551.645C219.413 555.975 241.205 570.662 256.323 594.866C280.5 633.573 273.95 687.542 242.049 718.925C213.239 747.267 156.891 758.499 117.609 724.511C115.87 726.528 116.734 728.936 116.725 731.1C116.644 752.152 116.497 773.206 116.791 794.254C116.873 800.117 114.909 801.977 109.172 801.742C99.7141 801.355 90.2244 801.459 80.758 801.714C75.9965 801.842 73.4597 800.458 74.1598 794.705ZM166.626 704.756C171.881 704.743 177.162 705.266 182.372 704.229C211.061 698.519 229.075 675.673 228.501 645.771C227.803 609.364 193.084 583.191 158.048 592.657C130.059 600.219 114.671 623.468 116.633 655.23C118.158 679.932 138.748 700.79 166.626 704.756Z" class="logo-path"/>
@@ -41,10 +92,10 @@
   </a>
 
   <nav class="navbar-links" id="navbarLinks">
-    <a href="index.html" class="nav-link active">Home</a>
-    <a href="sobre.html" class="nav-link">Sobre</a>
-    <a href="blog.html" class="nav-link">Blog</a>
-    <a href="calculadoras.html" class="nav-link">Calculadoras</a>
+    <a href="/" class="nav-link active">Home</a>
+    <a href="/sobre" class="nav-link">Sobre</a>
+    <a href="/blog" class="nav-link">Blog</a>
+    <a href="/calculadoras" class="nav-link">Calculadoras</a>
     <a href="#" class="nav-link nav-cta">Baixar App</a>
   </nav>
 
@@ -68,6 +119,7 @@
 <!-- ===== SEÇÃO 1 — HERO ===== -->
 <section id="s1">
   <div class="hero-inner">
+    <div class="badge">Poupaí — Finanças inteligentes</div>
     <h1 class="hero-title">
       <span class="grad1">Poupaí.<br>Seu dinheiro,<br>seu controle.</span>
     </h1>
@@ -239,7 +291,7 @@
   </div>
 </section>
 
-<script src="assets/js/script.js"></script>
+<script src="assets/js/script.js" defer></script>
 
 </body>
 </html>
