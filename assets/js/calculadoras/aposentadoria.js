@@ -3,6 +3,37 @@
 //  Lógica da calculadora de aposentadoria
 // =============================================
 
+// =============================================
+//  FORMATAÇÃO DE INPUTS MONETÁRIOS
+// =============================================
+function extrairValor(id) {
+  const raw = document.getElementById(id).value;
+  return parseFloat(raw.replace(/\./g, '').replace(',', '.')) || 0;
+}
+
+function aoSairDoInput(id) {
+  const input = document.getElementById(id);
+  const valor = parseFloat(input.value.replace(/\./g, '').replace(',', '.'));
+  if (!isNaN(valor) && valor > 0) {
+    input.value = valor.toLocaleString('pt-BR', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+  }
+}
+
+function aoEntrarNoInput(id) {
+  const input = document.getElementById(id);
+  const valor = parseFloat(input.value.replace(/\./g, '').replace(',', '.'));
+  if (!isNaN(valor) && valor > 0) input.value = valor;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  ['rendaMensal', 'patrimonioAtual', 'metaPatrimonio', 'gastoAposentado'].forEach(id => {
+    const input = document.getElementById(id);
+    if (!input) return;
+    input.addEventListener('blur',  () => aoSairDoInput(id));
+    input.addEventListener('focus', () => aoEntrarNoInput(id));
+  });
+});
+
 let graficoInstance = null;
 let dadosAnuais     = [];
 
@@ -25,14 +56,14 @@ function taxaAnualParaMensal(taxaAnual) {
 //  CÁLCULO PRINCIPAL
 // =============================================
 function calcularAposentadoria() {
-  const rendaMensal       = parseFloat(document.getElementById('rendaMensal').value)       || 0;
-  const patrimonioAtual   = parseFloat(document.getElementById('patrimonioAtual').value)   || 0;
-  const metaPatrimonio    = parseFloat(document.getElementById('metaPatrimonio').value)     || 0;
+  const rendaMensal       = extrairValor('rendaMensal');
+  const patrimonioAtual   = extrairValor('patrimonioAtual');
+  const metaPatrimonio    = extrairValor('metaPatrimonio');
   const percentual        = parseFloat(document.getElementById('percentualInvestido').value)|| 0;
   const idadeAtual        = parseInt(document.getElementById('idadeAtual').value)           || 0;
   const idadeAposentadoria= parseInt(document.getElementById('idadeAposentadoria').value)   || 0;
   const rentabilidade     = parseFloat(document.getElementById('rentabilidade').value)      || 0;
-  const gastoAposentado   = parseFloat(document.getElementById('gastoAposentado').value)    || 0;
+  const gastoAposentado   = extrairValor('gastoAposentado');
 
   // Validações
   if (idadeAtual <= 0 || idadeAposentadoria <= idadeAtual) {
@@ -142,8 +173,8 @@ function montarTabela() {
 
   dadosAnuais.forEach((d, i) => {
     const jurosAno = i === 0
-      ? d.patrimonio - d.totalInvestido
-      : d.patrimonio - dadosAnuais[i - 1].patrimonio - d.aporteAnual;
+        ? d.patrimonio - d.totalInvestido
+        : d.patrimonio - dadosAnuais[i - 1].patrimonio - d.aporteAnual;
 
     const tr = document.createElement('tr');
     tr.innerHTML = `
@@ -279,8 +310,8 @@ function renderizarGrafico(modo) {
 // =============================================
 function limpar() {
   ['rendaMensal','patrimonioAtual','metaPatrimonio','percentualInvestido',
-   'idadeAtual','idadeAposentadoria','rentabilidade','gastoAposentado']
-    .forEach(id => document.getElementById(id).value = '');
+    'idadeAtual','idadeAposentadoria','rentabilidade','gastoAposentado']
+      .forEach(id => document.getElementById(id).value = '');
 
   document.getElementById('results').style.display = 'none';
 
