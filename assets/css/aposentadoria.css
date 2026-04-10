@@ -171,7 +171,7 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 22px;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .result-card.highlight .result-value { color: var(--c2); }
