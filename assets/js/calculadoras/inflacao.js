@@ -24,6 +24,42 @@ function formatPct(v, casas = 2) {
   return v.toLocaleString('pt-BR', { minimumFractionDigits: casas, maximumFractionDigits: casas }) + '%';
 }
 
+// =============================================
+//  FORMATAÇÃO DE INPUTS MONETÁRIOS
+// =============================================
+function extrairValor(id) {
+  const raw = document.getElementById(id).value;
+  return parseFloat(raw.replace(/\./g, '').replace(',', '.')) || 0;
+}
+
+function formatarInput(valor) {
+  if (!valor && valor !== 0) return '';
+  return valor.toLocaleString('pt-BR', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+}
+
+function aoSairDoInput(id) {
+  const input = document.getElementById(id);
+  const valor = parseFloat(input.value.replace(/\./g, '').replace(',', '.'));
+  if (!isNaN(valor) && valor > 0) input.value = formatarInput(valor);
+}
+
+function aoEntrarNoInput(id) {
+  const input = document.getElementById(id);
+  const valor = parseFloat(input.value.replace(/\./g, '').replace(',', '.'));
+  if (!isNaN(valor) && valor > 0) input.value = valor;
+}
+
+// Inicializa formatação em todos os inputs monetários
+document.addEventListener('DOMContentLoaded', () => {
+  const monetarios = ['pc-valor', 'past-valor', 'fut-valor', 'rr-valor', 'sal-antes', 'sal-depois'];
+  monetarios.forEach(id => {
+    const input = document.getElementById(id);
+    if (!input) return;
+    input.addEventListener('blur',  () => aoSairDoInput(id));
+    input.addEventListener('focus', () => aoEntrarNoInput(id));
+  });
+});
+
 // Fórmula rendimento real de Fisher: ((1+nominal)/(1+inflacao)) - 1
 function rendimentoReal(nominal, inflacao) {
   return ((1 + nominal / 100) / (1 + inflacao / 100) - 1) * 100;
@@ -96,7 +132,7 @@ function chartOptions(extra = {}) {
 //  MODO 1 — PODER DE COMPRA
 // =============================================
 function calcularPoderCompra() {
-  const valor    = parseFloat(document.getElementById('pc-valor').value)    || 0;
+  const valor    = extrairValor('pc-valor');
   const anos     = parseInt(document.getElementById('pc-anos').value)       || 0;
   const selectVal= document.getElementById('pc-indice').value;
   let inflacao   = parseFloat(document.getElementById('pc-inflacao').value) || 0;
@@ -193,7 +229,7 @@ function calcularPoderCompra() {
 //  MODO 2 — VALOR NO PASSADO
 // =============================================
 function calcularPassado() {
-  const valor    = parseFloat(document.getElementById('past-valor').value)    || 0;
+  const valor    = extrairValor('past-valor');
   const anos     = parseInt(document.getElementById('past-anos').value)       || 0;
   const inflacao = parseFloat(document.getElementById('past-inflacao').value) || 0;
 
@@ -219,7 +255,7 @@ function calcularPassado() {
 //  MODO 3 — VALOR NO FUTURO
 // =============================================
 function calcularFuturo() {
-  const valor    = parseFloat(document.getElementById('fut-valor').value)    || 0;
+  const valor    = extrairValor('fut-valor');
   const anos     = parseInt(document.getElementById('fut-anos').value)       || 0;
   const inflacao = parseFloat(document.getElementById('fut-inflacao').value) || 0;
 
@@ -245,7 +281,7 @@ function calcularFuturo() {
 //  MODO 4 — RENDIMENTO REAL
 // =============================================
 function calcularRendimentoReal() {
-  const valor      = parseFloat(document.getElementById('rr-valor').value)      || 0;
+  const valor      = extrairValor('rr-valor');
   const anos       = parseInt(document.getElementById('rr-anos').value)         || 0;
   const rendimento = parseFloat(document.getElementById('rr-rendimento').value) || 0;
   const inflacao   = parseFloat(document.getElementById('rr-inflacao').value)   || 0;
@@ -310,8 +346,8 @@ function calcularRendimentoReal() {
 //  MODO 5 — SIMULADOR DE SALÁRIO
 // =============================================
 function calcularSalario() {
-  const salAntes   = parseFloat(document.getElementById('sal-antes').value)    || 0;
-  const salDepois  = parseFloat(document.getElementById('sal-depois').value)   || 0;
+  const salAntes   = extrairValor('sal-antes');
+  const salDepois  = extrairValor('sal-depois');
   const anos       = parseInt(document.getElementById('sal-anos').value)       || 0;
   const inflacao   = parseFloat(document.getElementById('sal-inflacao').value) || 0;
 

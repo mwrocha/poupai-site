@@ -3,15 +3,116 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora de Inflação — Poupaí</title>
+
+  <!-- SEO básico -->
+  <title>Calculadora de Inflação Online e Gratuita — IPCA, IGP-M e INPC | Poupaí</title>
+  <meta name="description" content="Calcule o impacto da inflação no seu poder de compra. Compare IPCA, IGP-M e INPC, descubra quanto vale seu dinheiro hoje e se seu salário acompanhou a inflação. Grátis.">
+  <meta name="keywords" content="calculadora inflação, calculadora IPCA, poder de compra, inflação acumulada, correção monetária IPCA, rendimento real investimento, inflação Brasil">
+  <meta name="author" content="Poupaí">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://poupai.io/inflacao">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Calculadora de Inflação — IPCA, IGP-M e INPC | Poupaí">
+  <meta property="og:description" content="Calcule o impacto da inflação no seu poder de compra, compare índices e descubra se seu salário e investimentos estão crescendo de verdade.">
+  <meta property="og:url" content="https://poupai.io/inflacao">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Poupaí">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Calculadora de Inflação — Poupaí">
+  <meta name="twitter:description" content="Calcule o impacto da inflação no seu poder de compra. IPCA, IGP-M e INPC. Grátis.">
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculadora de Inflação",
+      "description": "Calcule o impacto da inflação no poder de compra, compare IPCA, IGP-M e INPC, simule rendimento real de investimentos e verifique se seu salário acompanhou a inflação.",
+      "url": "https://poupai.io/inflacao",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "pt-BR",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Poupaí",
+        "url": "https://poupai.io"
+      }
+    }
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "O que é IPCA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "IPCA é o Índice Nacional de Preços ao Consumidor Amplo, calculado mensalmente pelo IBGE. É o índice oficial de inflação do Brasil e serve de referência para as metas de inflação do Banco Central e para reajustes de investimentos como o Tesouro IPCA+."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual a diferença entre IPCA, IGP-M e INPC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "O IPCA mede a inflação para famílias com renda de 1 a 40 salários mínimos e é o índice oficial do governo. O IGP-M inclui preços do atacado, construção e consumidor — é muito usado em reajustes de aluguel. O INPC foca em famílias de baixa renda (1 a 5 salários mínimos) e é usado para reajuste do salário mínimo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como calcular o poder de compra corrigido pela inflação?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Para calcular o poder de compra corrigido pela inflação, divide-se o valor nominal pela inflação acumulada no período. Por exemplo, R$ 3.000 com inflação de 5% no ano têm poder de compra real de R$ 2.857. Nossa calculadora faz esse cálculo automaticamente para qualquer período."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual foi o IPCA acumulado nos últimos 12 meses?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "O IPCA acumulado varia mensalmente. Em 2024, a inflação oficial fechou em 4,83%. Para verificar o IPCA atual e acumulado, consulte o site do IBGE (ibge.gov.br) ou use nossa calculadora informando a taxa anual estimada."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como saber se meu investimento rendeu acima da inflação?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use a fórmula de Fisher: rendimento real = ((1 + rendimento nominal) / (1 + inflação)) - 1. Por exemplo, um CDB que rendeu 12% ao ano com inflação de 4,5% teve rendimento real de aproximadamente 7,2%. Nossa calculadora de rendimento real faz esse cálculo automaticamente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "O IGP-M é usado para reajuste de aluguel?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. O IGP-M é o índice mais usado em contratos de aluguel residencial no Brasil. Por incluir preços do atacado, ele costuma ser mais volátil que o IPCA e pode subir mais em períodos de desvalorização cambial, impactando significativamente o valor dos aluguéis."
+          }
+        }
+      ]
+    }
+  </script>
+
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/pages.css">
   <link rel="stylesheet" href="assets/css/inflacao.css">
   <link rel="stylesheet" href="assets/css/theme.css">
-  <script src="assets/js/theme.js" defer></script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5428589425010946"
-          crossorigin="anonymous"></script>
+  <script src="assets/js/theme.js"></script>
 </head>
 <body class="page">
 
@@ -91,7 +192,7 @@
           <label>Valor original</label>
           <div class="input-wrap">
             <span class="input-prefix">R$</span>
-            <input type="number" id="pc-valor" placeholder="10.000,00" min="0" step="100">
+            <input type="text" id="pc-valor" placeholder="10.000,00" inputmode="numeric">
           </div>
         </div>
         <div class="input-group">
@@ -176,7 +277,7 @@
           <label>Valor no passado</label>
           <div class="input-wrap">
             <span class="input-prefix">R$</span>
-            <input type="number" id="past-valor" placeholder="1.000,00" min="0" step="100">
+            <input type="text" id="past-valor" placeholder="1.000,00" inputmode="numeric">
           </div>
         </div>
         <div class="input-group">
@@ -227,7 +328,7 @@
           <label>Valor atual</label>
           <div class="input-wrap">
             <span class="input-prefix">R$</span>
-            <input type="number" id="fut-valor" placeholder="10.000,00" min="0" step="100">
+            <input type="text" id="fut-valor" placeholder="10.000,00" inputmode="numeric">
           </div>
         </div>
         <div class="input-group">
@@ -278,7 +379,7 @@
           <label>Valor investido</label>
           <div class="input-wrap">
             <span class="input-prefix">R$</span>
-            <input type="number" id="rr-valor" placeholder="10.000,00" min="0" step="100">
+            <input type="text" id="rr-valor" placeholder="10.000,00" inputmode="numeric">
           </div>
         </div>
         <div class="input-group">
@@ -349,14 +450,14 @@
           <label>Salário no início do período</label>
           <div class="input-wrap">
             <span class="input-prefix">R$</span>
-            <input type="number" id="sal-antes" placeholder="3.000,00" min="0" step="100">
+            <input type="text" id="sal-antes" placeholder="3.000,00" inputmode="numeric">
           </div>
         </div>
         <div class="input-group">
           <label>Salário atual</label>
           <div class="input-wrap">
             <span class="input-prefix">R$</span>
-            <input type="number" id="sal-depois" placeholder="5.000,00" min="0" step="100">
+            <input type="text" id="sal-depois" placeholder="5.000,00" inputmode="numeric">
           </div>
         </div>
         <div class="input-group">
@@ -401,8 +502,78 @@
 
 </main>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-<script src="assets/js/script.js"></script>
-<script src="assets/js/calculadoras/inflacao.js"></script>
+<!-- CONTEÚDO EDITORIAL -->
+<main class="page-main">
+
+  <section class="page-section seo-content">
+    <h2>O que é inflação e como ela afeta seu dinheiro?</h2>
+    <p>Inflação é o aumento generalizado e contínuo dos preços de produtos e serviços ao longo do tempo. Com a inflação, o mesmo valor de dinheiro compra cada vez menos — ou seja, seu <strong>poder de compra diminui</strong>. No Brasil, o principal índice de inflação é o IPCA, calculado mensalmente pelo IBGE com base em uma cesta de produtos e serviços consumidos por famílias com renda de 1 a 40 salários mínimos.</p>
+    <p>Entender a inflação é fundamental para tomar boas decisões financeiras: escolher investimentos que rendam acima da inflação, negociar reajustes salariais adequados e avaliar o custo real de contratos e dívidas ao longo do tempo.</p>
+
+    <h2>IPCA, IGP-M e INPC: qual a diferença?</h2>
+    <p>Os três principais índices de inflação no Brasil medem coisas diferentes e são usados em contextos distintos:</p>
+    <div class="formula-box">
+      <strong>IPCA</strong>
+      <p>Índice oficial do governo · Famílias de 1 a 40 salários mínimos · Referência para metas do Banco Central e Tesouro IPCA+</p>
+    </div>
+    <div class="formula-box" style="border-left-color: var(--c2);">
+      <strong>IGP-M</strong>
+      <p>60% atacado + 30% consumidor + 10% construção · Mais volátil · Usado em reajustes de aluguel e tarifas</p>
+    </div>
+    <div class="formula-box" style="border-left-color: var(--c4);">
+      <strong>INPC</strong>
+      <p>Famílias de 1 a 5 salários mínimos · Base para reajuste do salário mínimo · Foco em itens de necessidade básica</p>
+    </div>
+
+    <h2>Como calcular o rendimento real de um investimento?</h2>
+    <p>O rendimento real é o que você realmente ganhou acima da inflação. A fórmula correta é a <strong>equação de Fisher</strong>:</p>
+    <div class="formula-box">
+      <strong>Rendimento real = ((1 + nominal) / (1 + inflação)) — 1</strong>
+      <p>Exemplo: CDB a 12% a.a. com IPCA de 4,5% → rendimento real ≈ 7,18% a.a.</p>
+    </div>
+    <p>Atenção: simplesmente subtrair a inflação do rendimento nominal dá um resultado aproximado, mas não exato. A fórmula de Fisher é o cálculo correto e é o que nossa calculadora usa no modo "Rendimento real".</p>
+
+    <h2>Como usar as 5 funções da calculadora</h2>
+    <ol class="seo-list">
+      <li><strong>Poder de compra:</strong> informe um valor, o período e a inflação média anual. Veja quanto esse dinheiro vale hoje em termos reais e compare IPCA, IGP-M e INPC.</li>
+      <li><strong>Valor no passado:</strong> descubra quanto um valor de anos atrás equivale em dinheiro de hoje, corrigido pela inflação.</li>
+      <li><strong>Valor no futuro:</strong> saiba quanto você precisará ter daqui a alguns anos para manter o mesmo poder de compra atual.</li>
+      <li><strong>Rendimento real:</strong> informe o rendimento bruto do seu investimento e a inflação do período para descobrir quanto você realmente ganhou.</li>
+      <li><strong>Simulador de salário:</strong> compare seu salário de antes com o atual e descubra se você ganhou ou perdeu poder de compra em relação à inflação.</li>
+    </ol>
+  </section>
+
+  <!-- FAQ -->
+  <section class="page-section seo-faq">
+    <h2>Perguntas frequentes sobre inflação</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>Qual foi a inflação acumulada no Brasil nos últimos anos?</h3>
+        <p>O IPCA acumulado em 2024 foi de 4,83%. Em 2023 foi 4,62%, em 2022 foi 5,79% e em 2021 foi 10,06% — o pico pós-pandemia. A meta do Banco Central para 2025 é 3% ao ano, com tolerância de até 4,5%. Use nossa calculadora informando a taxa anual do período que deseja simular.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Como proteger o dinheiro da inflação?</h3>
+        <p>A principal forma de proteger o patrimônio da inflação é investir em ativos que rendam acima do IPCA. O Tesouro IPCA+ garante a inflação mais uma taxa real de juros. CDBs de bancos sólidos costumam pagar 100% a 120% do CDI, que acompanha a Selic e tende a superar a inflação. Deixar dinheiro parado na conta corrente representa perda real de poder de compra.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Por que o IGP-M sobe mais que o IPCA?</h3>
+        <p>O IGP-M inclui 60% de preços do atacado (IPA), que são mais sensíveis à variação cambial e ao preço das commodities. Quando o dólar sobe, o IGP-M tende a subir bem mais que o IPCA — por isso em períodos de desvalorização do real, os reajustes de aluguel baseados no IGP-M podem ser muito altos.</p>
+      </div>
+      <div class="faq-item">
+        <h3>A poupança protege da inflação?</h3>
+        <p>Depende do período. A poupança rende 70% da Selic quando a taxa básica está abaixo de 8,5% ao ano, ou 0,5% ao mês + TR quando a Selic está acima disso. Em muitos períodos históricos, a poupança rendeu abaixo da inflação, representando perda real de poder de compra. Use nossa calculadora de rendimento real para comparar.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Como calcular a inflação acumulada entre dois anos?</h3>
+        <p>A inflação acumulada entre dois períodos é calculada multiplicando os índices mensais: (1 + i₁) × (1 + i₂) × ... × (1 + iₙ) - 1. Não é simplesmente somar as taxas anuais. Por exemplo, dois anos com 5% de inflação cada resultam em 10,25% acumulado, não 10%. Nossa calculadora aplica a fórmula correta automaticamente.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" defer></script>
+<script src="assets/js/script.js" defer></script>
+<script src="assets/js/calculadoras/inflacao.js" defer></script>
 </body>
 </html>
