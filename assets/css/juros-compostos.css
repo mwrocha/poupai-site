@@ -346,3 +346,91 @@ tbody td.montante-col {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== CONTEÚDO EDITORIAL SEO ===== */
+.seo-content,
+.seo-faq {
+  max-width: 860px;
+}
+
+.seo-content h2,
+.seo-faq h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 40px 0 14px;
+  color: var(--text-primary);
+}
+
+.seo-content h2:first-child { margin-top: 0; }
+
+.seo-content p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.seo-content strong { color: var(--text-primary); }
+
+.formula-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--c1);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 20px 0;
+  font-size: 22px;
+  text-align: center;
+}
+
+.formula-box p {
+  font-size: 13px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.seo-list {
+  padding-left: 20px;
+  margin-bottom: 16px;
+}
+
+.seo-list li {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.seo-list li strong { color: var(--text-primary); }
+
+/* FAQ */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.faq-item h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.faq-item p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+}

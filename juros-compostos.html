@@ -3,16 +3,116 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora de Juros Compostos — Poupaí</title>
+
+  <!-- SEO básico -->
+  <title>Calculadora de Juros Compostos Online e Gratuita — Poupaí</title>
+  <meta name="description" content="Calcule juros compostos com aportes mensais. Simule capital inicial, taxa de juros e período e veja a evolução mês a mês com gráfico. Grátis e online.">
+  <meta name="keywords" content="calculadora juros compostos, juros compostos com aportes mensais, calcular juros compostos, simulador juros compostos, juros sobre juros, calculadora investimento">
+  <meta name="author" content="Poupaí">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://poupai.io/juros-compostos">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Calculadora de Juros Compostos Online e Gratuita — Poupaí">
+  <meta property="og:description" content="Simule o crescimento do seu investimento com juros compostos. Inclui aportes mensais, gráfico e tabela mês a mês.">
+  <meta property="og:url" content="https://poupai.io/juros-compostos">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Poupaí">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Calculadora de Juros Compostos — Poupaí">
+  <meta name="twitter:description" content="Simule o crescimento do seu investimento com juros compostos. Grátis e online.">
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculadora de Juros Compostos",
+      "description": "Calcule o crescimento de investimentos com juros compostos, incluindo capital inicial, aportes mensais e taxa de juros. Visualize a evolução mês a mês com gráfico e tabela.",
+      "url": "https://poupai.io/juros-compostos",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "pt-BR",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Poupaí",
+        "url": "https://poupai.io"
+      }
+    }
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "O que são juros compostos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Juros compostos são juros calculados sobre o valor acumulado (capital + juros anteriores), e não apenas sobre o valor inicial. Também chamados de juros sobre juros, fazem o dinheiro crescer de forma exponencial ao longo do tempo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual é a fórmula dos juros compostos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A fórmula dos juros compostos é M = C × (1 + i)^t, onde M é o montante final, C é o capital inicial, i é a taxa de juros por período e t é o número de períodos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual a diferença entre juros simples e juros compostos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nos juros simples, os juros incidem sempre sobre o capital inicial. Nos juros compostos, os juros de cada período são somados ao capital e passam a render também. Isso faz os juros compostos crescerem de forma muito mais acelerada no longo prazo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como calcular juros compostos com aportes mensais?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Para calcular juros compostos com aportes mensais, usa-se a fórmula de valor futuro de anuidades: FV = PV × (1+i)^n + PMT × [((1+i)^n - 1) / i], onde PV é o capital inicial, PMT é o aporte mensal, i é a taxa mensal e n é o número de meses. Nossa calculadora faz esse cálculo automaticamente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quanto rendem R$ 1.000 em juros compostos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "R$ 1.000 aplicados a 1% ao mês durante 12 meses rendem R$ 1.126,83 em juros compostos, gerando R$ 126,83 de rendimento. Quanto maior o prazo, maior o efeito exponencial dos juros compostos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual é a melhor taxa de juros para investir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depende do tipo de investimento. A poupança rende cerca de 0,50% ao mês. CDBs de bancos digitais costumam pagar 100% do CDI, equivalente a cerca de 0,79% ao mês. O Tesouro Selic rende próximo ao CDI. Use nossa calculadora para simular diferentes taxas e ver o impacto no longo prazo."
+          }
+        }
+      ]
+    }
+  </script>
+
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/pages.css">
   <link rel="stylesheet" href="assets/css/juros-compostos.css">
   <link rel="stylesheet" href="assets/css/theme.css">
-  <script src="assets/js/theme.js" defer></script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5428589425010946"
-          crossorigin="anonymous"></script>
-
+  <script src="assets/js/theme.js"></script>
 </head>
 <body class="page">
 
@@ -169,10 +269,72 @@
     </div>
   </section>
 
+  <!-- CONTEÚDO EDITORIAL -->
+  <section class="page-section seo-content">
+
+    <h2>O que são juros compostos?</h2>
+    <p>Juros compostos são o sistema de capitalização em que os juros de cada período são somados ao capital e passam a render também nos períodos seguintes. Por isso, são chamados popularmente de <strong>juros sobre juros</strong>. Diferente dos juros simples, que incidem sempre sobre o valor inicial, os juros compostos fazem o dinheiro crescer de forma exponencial — quanto mais tempo, mais acelerado fica o crescimento.</p>
+
+    <p>Esse mecanismo está presente em praticamente todo o sistema financeiro: nos seus investimentos em renda fixa, no Tesouro Direto, nos CDBs, nos fundos de investimento — e também nas suas dívidas de cartão de crédito, cheque especial e financiamentos.</p>
+
+    <h2>Fórmula dos juros compostos</h2>
+    <p>A fórmula básica dos juros compostos é:</p>
+    <div class="formula-box">
+      <strong>M = C × (1 + i)<sup>t</sup></strong>
+      <p>Onde: <strong>M</strong> = montante final · <strong>C</strong> = capital inicial · <strong>i</strong> = taxa de juros por período · <strong>t</strong> = número de períodos</p>
+    </div>
+    <p>Exemplo prático: R$ 10.000 aplicados a 1% ao mês durante 12 meses resultam em R$ 11.268,25 — enquanto nos juros simples seriam apenas R$ 11.200,00. A diferença de R$ 68,25 pode parecer pequena em um ano, mas cresce exponencialmente com o tempo.</p>
+
+    <h2>Como usar a calculadora de juros compostos</h2>
+    <ol class="seo-list">
+      <li><strong>Capital inicial:</strong> informe o valor que você já tem disponível para investir hoje.</li>
+      <li><strong>Aporte mensal:</strong> adicione o valor que pretende investir todo mês. Se não tiver aportes, deixe em zero.</li>
+      <li><strong>Taxa de juros:</strong> informe a taxa mensal ou anual do seu investimento. Pode usar como referência: poupança (~0,50% a.m.), CDB 100% CDI (~0,79% a.m.) ou Tesouro Selic (~0,87% a.m.).</li>
+      <li><strong>Período:</strong> defina por quantos meses ou anos pretende manter o investimento.</li>
+      <li>Clique em <strong>Calcular</strong> e veja o montante final, total de juros ganhos e a evolução mês a mês.</li>
+    </ol>
+
+    <h2>Juros compostos x juros simples: qual a diferença?</h2>
+    <p>A diferença fundamental está na base de cálculo. Nos <strong>juros simples</strong>, os juros sempre incidem sobre o capital inicial — o rendimento é constante a cada período. Nos <strong>juros compostos</strong>, os juros de cada período são incorporados ao capital, aumentando a base de cálculo para o próximo período.</p>
+    <p>Em investimentos de longo prazo, essa diferença é enorme. R$ 10.000 aplicados a 1% ao mês por 10 anos rendem R$ 22.019 em juros simples e R$ 62.034 em juros compostos — uma diferença de mais de R$ 40.000.</p>
+
+    <h2>Por que começar a investir cedo?</h2>
+    <p>O tempo é o maior aliado dos juros compostos. Quanto mais cedo você começa, mais períodos de capitalização seu dinheiro tem — e o efeito exponencial aumenta drasticamente. Um investimento de R$ 500 por mês a 0,8% ao mês durante 30 anos acumula mais de R$ 2 milhões. O segredo não está no valor do aporte, mas no tempo de aplicação.</p>
+
+  </section>
+
+  <!-- FAQ -->
+  <section class="page-section seo-faq">
+    <h2>Perguntas frequentes sobre juros compostos</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>Quanto rendem R$ 1.000 em juros compostos?</h3>
+        <p>R$ 1.000 aplicados a 1% ao mês durante 12 meses rendem R$ 1.126,83 — um ganho de R$ 126,83. A 0,8% ao mês durante 5 anos, o mesmo valor chega a R$ 1.601,03. Use nossa calculadora acima para simular qualquer cenário.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Como converter taxa anual em taxa mensal?</h3>
+        <p>Para converter taxa anual em taxa mensal em juros compostos, use a fórmula: i_mensal = (1 + i_anual)^(1/12) - 1. Por exemplo, 12% ao ano equivale a 0,9489% ao mês — não simplesmente 1% (que seria a divisão por 12, válida apenas para juros simples). Nossa calculadora faz essa conversão automaticamente.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Qual investimento tem melhor taxa de juros compostos?</h3>
+        <p>Em renda fixa, os CDBs de bancos digitais costumam pagar 100% a 120% do CDI, equivalente a 0,79% a 0,95% ao mês. O Tesouro Selic acompanha a taxa básica de juros da economia. LCIs e LCAs são isentas de IR e costumam pagar entre 85% a 95% do CDI. Compare sempre o retorno líquido após impostos.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Juros compostos servem para calcular dívidas também?</h3>
+        <p>Sim. O cartão de crédito rotativo e o cheque especial utilizam juros compostos, com taxas que podem ultrapassar 10% ao mês. Uma dívida de R$ 5.000 no rotativo pode dobrar em menos de 8 meses. Por isso, evitar dívidas com juros compostos altos é tão importante quanto aproveitar os juros compostos a seu favor nos investimentos.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Como calcular juros compostos no Excel?</h3>
+        <p>No Excel, use a fórmula =VF(taxa;nper;pgto;vp) onde taxa é a taxa por período, nper é o número de períodos, pgto é o aporte mensal (negativo) e vp é o capital inicial (negativo). Exemplo: =VF(1%;24;-500;-1000) calcula o montante de R$ 1.000 com aportes de R$ 500 por 24 meses a 1% ao mês.</p>
+      </div>
+    </div>
+  </section>
+
 </main>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-<script src="assets/js/script.js"></script>
-<script src="assets/js/calculadoras/juros-compostos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" defer></script>
+<script src="assets/js/script.js" defer></script>
+<script src="assets/js/calculadoras/juros-compostos.js" defer></script>
 </body>
 </html>
