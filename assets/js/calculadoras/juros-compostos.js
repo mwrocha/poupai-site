@@ -23,12 +23,63 @@ function taxaAnualParaMensal(taxaAnual) {
 }
 
 // =============================================
+//  FORMATAÇÃO DE INPUTS
+// =============================================
+
+// Extrai o valor numérico de um input formatado
+function extrairValor(id) {
+  const raw = document.getElementById(id).value;
+  // Remove pontos de milhar e troca vírgula por ponto
+  return parseFloat(raw.replace(/\./g, '').replace(',', '.')) || 0;
+}
+
+// Formata número para exibição no input (ex: 100.000,50)
+function formatarInput(valor) {
+  if (!valor && valor !== 0) return '';
+  return valor.toLocaleString('pt-BR', {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2
+  });
+}
+
+// Aplica formatação ao sair do campo (blur)
+function aoSairDoInput(id) {
+  const input = document.getElementById(id);
+  const valor = parseFloat(input.value.replace(/\./g, '').replace(',', '.'));
+  if (!isNaN(valor) && valor > 0) {
+    input.value = formatarInput(valor);
+  }
+}
+
+// Limpa formatação ao entrar no campo (focus) — facilita edição
+function aoEntrarNoInput(id) {
+  const input = document.getElementById(id);
+  const valor = parseFloat(input.value.replace(/\./g, '').replace(',', '.'));
+  if (!isNaN(valor) && valor > 0) {
+    input.value = valor;
+  }
+}
+
+// Inicializa eventos de formatação nos inputs monetários
+document.addEventListener('DOMContentLoaded', () => {
+  const inputsMonetarios = ['capital', 'aporte'];
+
+  inputsMonetarios.forEach(id => {
+    const input = document.getElementById(id);
+    if (!input) return;
+
+    input.addEventListener('blur',  () => aoSairDoInput(id));
+    input.addEventListener('focus', () => aoEntrarNoInput(id));
+  });
+});
+
+// =============================================
 //  CÁLCULO PRINCIPAL
 // =============================================
 function calcular() {
-  const capital        = parseFloat(document.getElementById('capital').value)  || 0;
-  const aporte         = parseFloat(document.getElementById('aporte').value)   || 0;
-  const taxaInput      = parseFloat(document.getElementById('taxa').value)     || 0;
+  const capital        = extrairValor('capital');
+  const aporte         = extrairValor('aporte');
+  const taxaInput      = parseFloat(document.getElementById('taxa').value.replace(',', '.'))  || 0;
   const periodoInput   = parseInt(document.getElementById('periodo').value)    || 0;
   const periodoTaxa    = document.getElementById('periodoTaxa').value;
   const unidadePeriodo = document.getElementById('unidadePeriodo').value;
