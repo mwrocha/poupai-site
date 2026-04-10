@@ -15,34 +15,69 @@ function formatPct(v) {
   return v.toLocaleString('pt-BR', { minimumFractionDigits:2, maximumFractionDigits:2 }) + '%';
 }
 
-// Atualiza hint de percentual de entrada
-document.getElementById('entrada').addEventListener('input', () => {
-  const val   = parseFloat(document.getElementById('valorImovel').value) || 0;
-  const ent   = parseFloat(document.getElementById('entrada').value)     || 0;
-  const hint  = document.getElementById('pctEntrada');
-  if (val > 0 && ent > 0) {
-    const pct = (ent / val * 100).toFixed(1);
-    hint.textContent = `${pct}% do valor do imóvel`;
-    hint.style.color = pct >= 20 ? 'var(--c5)' : 'var(--c3)';
-  } else {
-    hint.textContent = '';
-  }
+// =============================================
+//  FORMATAÇÃO DE INPUTS
+// =============================================
+function extrairValor(id) {
+  const raw = document.getElementById(id).value;
+  return parseFloat(raw.replace(/\./g, '').replace(',', '.')) || 0;
+}
+
+function formatarInput(valor) {
+  if (!valor && valor !== 0) return '';
+  return valor.toLocaleString('pt-BR', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+}
+
+function aoSairDoInput(id) {
+  const input = document.getElementById(id);
+  const valor = parseFloat(input.value.replace(/\./g, '').replace(',', '.'));
+  if (!isNaN(valor) && valor > 0) input.value = formatarInput(valor);
+}
+
+function aoEntrarNoInput(id) {
+  const input = document.getElementById(id);
+  const valor = parseFloat(input.value.replace(/\./g, '').replace(',', '.'));
+  if (!isNaN(valor) && valor > 0) input.value = valor;
+}
+
+// Inicializa formatação nos inputs monetários
+document.addEventListener('DOMContentLoaded', () => {
+  ['valorImovel', 'entrada', 'renda'].forEach(id => {
+    const input = document.getElementById(id);
+    if (!input) return;
+    input.addEventListener('blur',  () => aoSairDoInput(id));
+    input.addEventListener('focus', () => aoEntrarNoInput(id));
+  });
 });
 
-document.getElementById('valorImovel').addEventListener('input', () => {
-  document.getElementById('entrada').dispatchEvent(new Event('input'));
+// Atualiza hint de percentual de entrada
+document.addEventListener('DOMContentLoaded', () => {
+  const atualizarHint = () => {
+    const val  = extrairValor('valorImovel');
+    const ent  = extrairValor('entrada');
+    const hint = document.getElementById('pctEntrada');
+    if (val > 0 && ent > 0) {
+      const pct = (ent / val * 100).toFixed(1);
+      hint.textContent = `${pct}% do valor do imóvel`;
+      hint.style.color = pct >= 20 ? 'var(--c5)' : 'var(--c3)';
+    } else {
+      hint.textContent = '';
+    }
+  };
+  document.getElementById('entrada').addEventListener('input', atualizarHint);
+  document.getElementById('valorImovel').addEventListener('input', atualizarHint);
 });
 
 // =============================================
 //  CÁLCULO PRINCIPAL
 // =============================================
 function calcularFinanciamento() {
-  const valorImovel  = parseFloat(document.getElementById('valorImovel').value) || 0;
-  const entrada      = parseFloat(document.getElementById('entrada').value)     || 0;
-  const prazoAnos    = parseInt(document.getElementById('prazoAnos').value)     || 0;
-  const taxaAnual    = parseFloat(document.getElementById('taxaAnual').value)   || 0;
-  const correcaoMes  = parseFloat(document.getElementById('correcao').value)    || 0;
-  const renda        = parseFloat(document.getElementById('renda').value)       || 0;
+  const valorImovel  = extrairValor('valorImovel');
+  const entrada      = extrairValor('entrada');
+  const prazoAnos    = parseInt(document.getElementById('prazoAnos').value)                      || 0;
+  const taxaAnual    = parseFloat(document.getElementById('taxaAnual').value.replace(',', '.'))  || 0;
+  const correcaoMes  = parseFloat(document.getElementById('correcao').value)                     || 0;
+  const renda        = extrairValor('renda');
 
   if (valorImovel <= 0 || prazoAnos <= 0 || taxaAnual <= 0) {
     alert('Preencha valor do imóvel, prazo e taxa de juros.');
