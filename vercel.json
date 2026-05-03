@@ -11,6 +11,12 @@
     { "source": "/reserva-emergencia.html",       "destination": "/reserva-emergencia",    "permanent": true },
     { "source": "/financiamento-imobiliario.html","destination": "/financiamento-imobiliario", "permanent": true },
     { "source": "/financiamento-geral.html",      "destination": "/financiamento-geral",   "permanent": true },
-    { "source": "/inflacao.html",                 "destination": "/inflacao",              "permanent": true }
+    { "source": "/inflacao.html",                 "destination": "/inflacao",              "permanent": true },
+    { "source": "/privacidade.html",              "destination": "/privacidade",           "permanent": true },
+    { "source": "/blog/como-comecar-a-investir",  "destination": "/blog-como-comecar-a-investir", "permanent": false },
+    { "source": "/blog/reserva-de-emergencia",    "destination": "/blog-reserva-de-emergencia",   "permanent": false },
+    { "source": "/blog/juros-compostos",          "destination": "/blog-juros-compostos",         "permanent": false },
+    { "source": "/blog/como-sair-das-dividas",    "destination": "/blog-como-sair-das-dividas",   "permanent": false },
+    { "source": "/blog/tesouro-direto-para-iniciantes", "destination": "/blog-tesouro-direto-para-iniciantes", "permanent": false }
   ]
 }
