@@ -3,6 +3,20 @@
    Estilo editorial para artigos do blog Poupaí
    ============================================= */
 
+/* ===== OVERRIDE DE SEÇÕES DO ARTIGO ===== */
+/* Remove padding excessivo entre hero e corpo */
+.page-section:has(.article-hero) {
+  padding-bottom: 0;
+}
+
+.page-section:has(.article-body) {
+  padding-top: 32px;
+}
+
+.page-section:has(.article-related) {
+  padding-top: 0;
+}
+
 /* ===== HERO DO ARTIGO ===== */
 .article-hero {
   padding: 60px 0 40px;
