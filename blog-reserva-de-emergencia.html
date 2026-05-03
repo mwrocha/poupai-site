@@ -37,9 +37,11 @@
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/pages.css">
   <link rel="stylesheet" href="assets/css/theme.css">
+  <link rel="stylesheet" href="assets/css/blog-article.css">
   <script src="assets/js/theme.js"></script>
 </head>
 <body class="page">
+  <div class="reading-progress" id="readingProgress"></div>
 
   <header class="navbar" id="navbar">
         <a href="/" class="navbar-logo">
@@ -72,13 +74,30 @@
 
   <main class="page-main">
     <section class="page-section">
-      <div class="page-tag">Planejamento</div>
-      <h1 class="page-title" style="font-size:clamp(28px,4vw,48px); line-height:1.2;">Reserva de emergência: quanto guardar e onde deixar o dinheiro</h1>
-      <p style="font-size:13px; color:var(--text-muted); margin-top:12px;">Publicado em 3 de maio de 2026 · 6 min de leitura</p>
+      <div class="article-hero">
+        <span class="article-tag">Planejamento</span>
+        <h1 class="article-title">Reserva de emergência: quanto guardar e onde deixar o dinheiro</h1>
+        <div class="article-meta">
+          <span class="article-meta-item">📅 3 de maio de 2026</span>
+          <span class="article-meta-divider"></span>
+          <span class="article-meta-item">⏱ 6 min de leitura</span>
+        </div>
+      </div>
     </section>
 
     <section class="page-section">
-      <div class="seo-content" style="max-width:780px;">
+      <div class="article-body">
+                <div class="article-toc">
+          <div class="article-toc-title">Neste artigo</div>
+          <ol>
+            <li><a href="#o-que-e">O que é reserva de emergência?</a></li>
+            <li><a href="#quanto">Quanto guardar?</a></li>
+            <li><a href="#calculo">Calcule pela despesa, não pela renda</a></li>
+            <li><a href="#onde">Onde guardar a reserva de emergência?</a></li>
+            <li><a href="#tempo">Quanto tempo leva para montar a reserva?</a></li>
+            <li><a href="#depois">E depois que completar a reserva?</a></li>
+          </ol>
+        </div>
         
         <p>A reserva de emergência é o alicerce de qualquer planejamento financeiro sólido. Sem ela, qualquer imprevisto — demissão, doença, conserto urgente — pode jogar anos de organização financeira por água abaixo. Com ela, você dorme tranquilo sabendo que tem uma rede de proteção pronta para ser usada quando mais precisar.</p>
 
@@ -120,16 +139,14 @@
     </section>
 
     <section class="page-section">
-      <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:20px; padding:32px; max-width:780px;">
-        <p class="page-tag" style="margin-bottom:8px;">Continuar lendo</p>
-        <h3 style="font-family:'Montserrat',sans-serif; font-size:20px; font-weight:700; color:var(--text-primary); margin-bottom:16px;">Mais artigos do blog Poupaí</h3>
-        <div style="display:flex; flex-direction:column; gap:12px;">
-          <a href="/blog/como-comecar-a-investir" style="color:var(--c1); text-decoration:none; font-weight:500;">→ Como começar a investir do zero: guia completo para iniciantes</a>
-          <a href="/blog/reserva-de-emergencia" style="color:var(--c1); text-decoration:none; font-weight:500;">→ Reserva de emergência: quanto guardar e onde deixar o dinheiro</a>
-          <a href="/blog/juros-compostos" style="color:var(--c1); text-decoration:none; font-weight:500;">→ Juros compostos: o que são e como fazer seu dinheiro crescer sozinho</a>
-          <a href="/blog/como-sair-das-dividas" style="color:var(--c1); text-decoration:none; font-weight:500;">→ Como sair das dívidas em 2026: passo a passo prático</a>
-          <a href="/blog/tesouro-direto-para-iniciantes" style="color:var(--c1); text-decoration:none; font-weight:500;">→ Tesouro Direto para iniciantes: tudo o que você precisa saber</a>
-        </div>
+      <div class="article-related">
+        <div class="article-related-title">Continue lendo</div>
+        <ul class="article-related-list">
+          <li><a href="/blog/como-comecar-a-investir">📈 Como começar a investir do zero</a></li>
+          <li><a href="/blog/juros-compostos">💹 Juros compostos: como fazer seu dinheiro crescer</a></li>
+          <li><a href="/blog/como-sair-das-dividas">💳 Como sair das dívidas em 2026</a></li>
+          <li><a href="/blog/tesouro-direto-para-iniciantes">🏛️ Tesouro Direto para iniciantes</a></li>
+        </ul>
       </div>
     </section>
   </main>
@@ -144,6 +161,16 @@
     </p>
   </footer>
 
+  <script>
+    // Barra de progresso de leitura
+    window.addEventListener('scroll', () => {
+      const body = document.body;
+      const html = document.documentElement;
+      const totalHeight = Math.max(body.scrollHeight, html.scrollHeight) - window.innerHeight;
+      const progress = (window.scrollY / totalHeight) * 100;
+      document.getElementById('readingProgress').style.width = progress + '%';
+    });
+  </script>
   <script src="assets/js/script.js" defer></script>
   <script defer src="/_vercel/insights/script.js"></script>
 </body>
