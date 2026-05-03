@@ -17,6 +17,7 @@
     { "source": "/blog/reserva-de-emergencia",    "destination": "/blog-reserva-de-emergencia",   "permanent": false },
     { "source": "/blog/juros-compostos",          "destination": "/blog-juros-compostos",         "permanent": false },
     { "source": "/blog/como-sair-das-dividas",    "destination": "/blog-como-sair-das-dividas",   "permanent": false },
-    { "source": "/blog/tesouro-direto-para-iniciantes", "destination": "/blog-tesouro-direto-para-iniciantes", "permanent": false }
+    { "source": "/blog/tesouro-direto-para-iniciantes", "destination": "/blog-tesouro-direto-para-iniciantes", "permanent": false },
+    { "source": "/blog/selic-2026", "destination": "/blog-selic-2026", "permanent": false }
   ]
 }
